@@ -2,820 +2,521 @@
 <html lang="en-GB">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Adedolapo Abraham Adeboye, SMNSE | Engineering Portfolio</title>
-    <meta name="description" content="Portfolio of Adedolapo A. Adeboye, SMNSE, a Mechanical Engineering student at the University of Ibadan specializing in Energy Engineering, Robotics, and automation." />
-    <meta name="keywords" content="Adedolapo Adeboye, Adedolapo Abraham Adeboye, SMNSE, Mechanical Engineering, University of Ibadan, Robotics, Energy Engineering, Automation, AMES, NIMechE-UI, Cybersecurity">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Adedolapo Abraham Adeboye, SMNSE | Spatial Portfolio</title>
+    <meta name="description" content="Portfolio of Adedolapo A. Adeboye, SMNSE, Mechanical Engineering undergraduate at the University of Ibadan." />
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Updated Fonts: Cinzel for Headings, Raleway for Body -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
     <style>
-        /* ── CSS Variables & Theming ── */
+        /* ── Core Variables (Professional VisionOS Pro Style) ── */
         :root {
-            /* Dark Mode (Default) */
-            --bg-main: #0f172a; 
-            --bg-surface: #1e293b; 
-            --bg-surface-hover: #334155;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent-cyan: #06b6d4;
-            --accent-cyan-hover: #22d3ee;
-            --accent-amber: #f59e0b;
-            --border-color: rgba(255, 255, 255, 0.05);
-            --shadow-color: rgba(0, 0, 0, 0.3);
+            /* Deep, sophisticated dark mode (Titanium/Midnight) */
+            --bg-color-1: #000000;
+            --bg-color-2: #0a0a0c;
+            --bg-color-3: #111116;
+            --bg-color-4: #050505;
+
+            /* Subtle, elegant ambient orbs */
+            --orb-1: #1e3a8a; /* Deep sapphire */
+            --orb-2: #0f766e; /* Deep teal */
+            
+            /* Glassmorphism Variables */
+            --glass-bg: rgba(20, 20, 24, 0.55);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-highlight: rgba(255, 255, 255, 0.03);
+            --glass-shadow: 0 24px 48px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            
+            /* Typography */
+            --text-main: #f5f5f7;
+            --text-muted: #86868b;
+            --accent-color: #2997ff; /* Apple system blue */
             
             --font-heading: 'Cinzel', serif;
             --font-body: 'Raleway', sans-serif;
-            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        /* Light Mode Overrides */
+        /* Light Mode Spatial Overrides (Frosted Silver/White) */
         body.light-mode {
-            --bg-main: #f8fafc;
-            --bg-surface: #ffffff;
-            --bg-surface-hover: #f1f5f9;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --border-color: rgba(0, 0, 0, 0.1);
-            --shadow-color: rgba(0, 0, 0, 0.05);
+            --bg-color-1: #f5f5f7;
+            --bg-color-2: #ffffff;
+            --bg-color-3: #e5e5ea;
+            --bg-color-4: #f0f0f5;
+
+            --orb-1: #bfdbfe;
+            --orb-2: #ccfbf1;
+            
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(0, 0, 0, 0.05);
+            --glass-highlight: rgba(255, 255, 255, 1);
+            --glass-shadow: 0 16px 32px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            
+            --text-main: #1d1d1f;
+            --text-muted: #86868b;
+            --accent-color: #0071e3;
         }
 
         /* ── Reset & Base ── */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: inherit;
+        * { margin: 0; padding: 0; box-sizing: inherit; }
+        html { 
+            font-size: 62.5%; 
+            scroll-behavior: smooth; 
+            -webkit-text-size-adjust: 100%;
         }
-
-        html {
-            font-size: 62.5%; /* 1rem = 10px */
-            scroll-behavior: smooth;
-            scroll-padding-top: 8rem;
-        }
-
+        
         body {
             box-sizing: border-box;
             font-family: var(--font-body);
-            background-color: var(--bg-main);
-            color: var(--text-primary);
-            line-height: 1.7;
+            color: var(--text-main);
+            background-color: var(--bg-color-4);
+            line-height: 1.6;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
-            transition: background-color 0.4s ease, color 0.4s ease;
+            padding-bottom: 12rem; /* Space for dock */
+            transition: var(--transition-smooth);
         }
 
         a { text-decoration: none; color: inherit; }
         li { list-style: none; }
-        img { max-width: 100%; display: block; }
-        
-        /* ── Typography ── */
-        h1, h2, h3, h4 {
-            font-family: var(--font-heading);
-            line-height: 1.2;
-        }
 
-        .heading-primary {
-            font-size: clamp(3.5rem, 6vw, 6.5rem);
-            font-weight: 800;
-            letter-spacing: 1px;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .heading-sec__main {
-            font-size: clamp(2.8rem, 5vw, 4rem);
-            font-weight: 700;
-            color: var(--text-primary);
-            text-align: center;
-            display: block;
-            margin-bottom: 1.5rem;
-        }
-
-        .heading-sec__sub {
-            display: block;
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 1.8rem;
-            max-width: 70rem;
-            margin: 0 auto 5rem;
-            font-weight: 400;
-        }
-
-        .highlight-cyan { color: var(--accent-cyan); font-weight: 600; }
-        .highlight-amber { color: var(--accent-amber); font-weight: 600; }
-
-        /* ── Layout & Utilities ── */
-        .container {
-            max-width: 120rem;
-            margin: 0 auto;
-            padding: 0 3rem;
-        }
-
-        .sec-pad { padding: 9rem 0; }
-        
-        /* ── Buttons ── */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.4rem 3.2rem;
-            font-size: 1.6rem;
-            font-weight: 700;
-            font-family: var(--font-heading);
-            border-radius: 8px;
-            transition: var(--transition-smooth);
-            cursor: pointer;
-            border: 2px solid transparent;
-            letter-spacing: 1px;
-        }
-
-        .btn--cyan {
-            background-color: var(--accent-cyan);
-            color: #0f172a; /* Keep text dark for contrast */
-        }
-
-        .btn--cyan:hover {
-            background-color: var(--accent-cyan-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(6, 182, 212, 0.2);
-        }
-
-        .btn--outline {
-            background-color: transparent;
-            border-color: var(--accent-amber);
-            color: var(--accent-amber);
-        }
-
-        .btn--outline:hover {
-            background-color: rgba(245, 158, 11, 0.1);
-            transform: translateY(-3px);
-        }
-
-        /* ── Header & Nav ── */
-        .header {
+        /* ── Liquid Animated Background ── */
+        .ambient-bg {
             position: fixed;
-            top: 0; left: 0; width: 100%;
-            z-index: 1000;
-            background: var(--bg-main);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-            transition: var(--transition-smooth);
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1;
+            background: linear-gradient(135deg, var(--bg-color-1), var(--bg-color-2), var(--bg-color-3), var(--bg-color-1));
+            background-size: 400% 400%;
+            animation: liquidFlow 25s ease infinite;
         }
 
-        /* Make background slightly transparent */
-        body:not(.light-mode) .header { background: rgba(15, 23, 42, 0.85); }
-        body.light-mode .header { background: rgba(248, 250, 252, 0.85); }
+        /* Liquid Orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+            opacity: 0.4;
+            animation: floatOrb 20s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+        .orb-1 { width: 50vw; height: 50vw; background: var(--orb-1); top: -10%; left: -10%; }
+        .orb-2 { width: 60vw; height: 60vw; background: var(--orb-2); bottom: -20%; right: -10%; animation-delay: -5s; }
 
-        .header__content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 8rem;
+        @keyframes liquidFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes floatOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(5vw, 5vh) scale(1.1); }
         }
 
-        .logo-text {
-            font-family: var(--font-heading);
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            cursor: pointer;
+        /* ── Typography ── */
+        h1, h2, h3, h4 { font-family: var(--font-heading); }
+        .text-gradient {
+            background: linear-gradient(135deg, var(--text-main) 30%, var(--text-muted) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-title { font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 800; margin-bottom: 1rem; line-height: 1.2;}
+        .hero-subtitle { font-size: clamp(1.4rem, 2.5vw, 1.8rem); color: var(--text-muted); max-width: 70rem; }
+        
+        .section-title { font-size: clamp(2rem, 3vw, 2.4rem); margin-bottom: 2.5rem; display: flex; align-items: center; gap: 1rem;}
+        .section-title::before { content: ''; display: block; width: 8px; height: 8px; background: var(--accent-color); border-radius: 50%; }
+
+        /* ── Layout Container ── */
+        .container {
+            width: 100%;
+            max-width: 130rem;
+            margin: 0 auto;
+            padding: 6rem 2.5rem;
         }
 
-        .logo-text span {
-            color: var(--accent-cyan);
-        }
-
-        .nav__wrapper {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-        }
-
-        .nav__links {
-            display: flex;
-            gap: 2.5rem;
-        }
-
-        .nav__link {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            transition: var(--transition-smooth);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        /* ── VisionOS Glass Panel (The Bento Box) ── */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(32px);
+            -webkit-backdrop-filter: blur(32px);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            padding: 4rem;
+            box-shadow: var(--glass-shadow);
             position: relative;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
         }
-
-        .nav__link::after {
+        
+        /* Subtle hover light effect */
+        .glass-panel::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent-cyan);
-            transition: width 0.3s ease;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 0%, var(--glass-highlight) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+        .glass-panel:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+        body.light-mode .glass-panel:hover { border-color: rgba(0, 0, 0, 0.15); }
+        .glass-panel:hover::after { opacity: 1; }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2.5rem;
+            margin-top: 2.5rem;
         }
 
-        .nav__link:hover, .nav__link.active { color: var(--text-primary); }
-        .nav__link:hover::after, .nav__link.active::after { width: 100%; }
+        .span-12 { grid-column: span 12; }
+        .span-8 { grid-column: span 8; }
+        .span-6 { grid-column: span 6; }
+        .span-4 { grid-column: span 4; }
 
-        /* Theme Toggle */
-        .theme-toggle-btn {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            width: 4rem;
-            height: 4rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.8rem;
-            transition: var(--transition-smooth);
-        }
-
-        .theme-toggle-btn:hover {
-            background: var(--bg-surface-hover);
-            transform: rotate(15deg);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            width: 30px;
-            height: 20px;
-            position: relative;
-        }
-
-        .mobile-menu-btn span {
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: var(--text-primary);
-            transition: var(--transition-smooth);
-        }
-
-        .mobile-menu-btn span:nth-child(1) { top: 0; }
-        .mobile-menu-btn span:nth-child(2) { top: 9px; }
-        .mobile-menu-btn span:nth-child(3) { top: 18px; }
-
-        .mobile-menu {
-            position: absolute;
-            top: 8rem;
-            left: 0;
-            width: 100%;
-            background: var(--bg-surface);
-            padding: 2rem 0;
-            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-            transition: clip-path 0.4s ease-in-out;
-            box-shadow: 0 20px 40px var(--shadow-color);
-        }
-
-        .mobile-menu.open {
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        }
-
-        .mobile-menu__link {
-            display: block;
-            text-align: center;
-            padding: 1.5rem;
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        /* ── Hero Section ── */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            padding-top: 8rem;
-        }
-
-        .hero__content p {
-            font-size: clamp(1.8rem, 3vw, 2.2rem);
-            color: var(--text-secondary);
-            max-width: 80rem;
-            margin: 0 auto 4rem;
-        }
-
-        .hero__cta {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* ── Grids & Cards Base ── */
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; }
-        
-        .card {
-            background: var(--bg-surface);
-            border-radius: 12px;
-            padding: 3rem;
-            border: 1px solid var(--border-color);
-            transition: var(--transition-smooth);
-            box-shadow: 0 4px 6px var(--shadow-color);
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px var(--shadow-color);
-            border-color: var(--accent-cyan);
-        }
-
-        /* ── About Section ── */
-        .about__text p {
-            font-size: 1.8rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-        .skills-list { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
-        .skill-tag {
-            background: rgba(6, 182, 212, 0.1);
-            color: var(--accent-cyan);
+        /* ── Specific Component Styling ── */
+        .pill-list { display: flex; flex-wrap: wrap; gap: 1rem; }
+        .pill {
+            background: rgba(150, 150, 150, 0.08);
+            border: 1px solid var(--glass-border);
             padding: 0.8rem 1.6rem;
             border-radius: 30px;
             font-size: 1.4rem;
-            font-weight: 600;
-            border: 1px solid rgba(6, 182, 212, 0.2);
+            color: var(--text-main);
+            transition: var(--transition-smooth);
+            backdrop-filter: blur(10px);
+        }
+        .pill:hover { background: var(--text-main); color: var(--bg-color-1); border-color: var(--text-main); }
+
+        .list-item {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .list-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .item-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;}
+        .item-title { font-size: 1.8rem; font-weight: 700; }
+        .item-meta { font-size: 1.4rem; color: var(--text-muted); font-weight: 600; font-family: var(--font-heading);}
+        .item-desc { font-size: 1.5rem; color: var(--text-muted); }
+        
+        .highlight { color: var(--text-main); font-weight: 500; }
+
+        /* ── Floating Dock (VisionOS Style Navigation) ── */
+        .dock-container {
+            position: fixed;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: max-content;
+            max-width: 95vw;
         }
 
-        /* ── Timeline (Education & Experience) ── */
-        .timeline-item {
-            position: relative;
-            padding-left: 3rem;
-            margin-bottom: 3rem;
-            border-left: 2px solid var(--accent-amber);
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -9px;
-            top: 0;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--accent-amber);
-            border: 3px solid var(--bg-main);
-        }
-        .timeline-date {
-            font-size: 1.4rem;
-            color: var(--accent-cyan);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-        .timeline-title {
-            font-size: 2rem;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-        .timeline-subtitle {
-            font-size: 1.6rem;
-            color: var(--text-secondary);
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-
-        /* ── Awards & Certifications ── */
-        .award-list {
-            list-style: none;
-        }
-        .award-item {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .award-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-        .award-icon { font-size: 2.4rem; }
-        .award-details h4 { font-size: 1.8rem; color: var(--text-primary); }
-        .award-details p { font-size: 1.4rem; color: var(--text-secondary); }
-
-        /* ── Contact Section ── */
-        .contact-box {
-            background: var(--bg-surface);
-            padding: 6rem;
-            border-radius: 20px;
-            text-align: center;
-            max-width: 80rem;
-            margin: 0 auto;
-            border: 1px solid var(--border-color);
-            position: relative;
-            overflow: hidden;
-        }
-        .contact-box::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 4px;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-amber));
-        }
-        .contact-box p {
-            font-size: 1.8rem;
-            margin-bottom: 3rem;
-            color: var(--text-secondary);
-        }
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
-        .contact-link {
-            font-size: 1.8rem;
-            color: var(--text-primary);
-            font-weight: 600;
+        .dock {
             display: flex;
             align-items: center;
             gap: 1rem;
-            transition: color 0.2s;
+            padding: 1rem 1.5rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(40px) saturate(150%);
+            -webkit-backdrop-filter: blur(40px) saturate(150%);
+            border: 1px solid var(--glass-border);
+            border-radius: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
         }
-        .contact-link:hover { color: var(--accent-cyan); }
+        .dock::-webkit-scrollbar { display: none; } /* Safari and Chrome */
 
-        /* ── Footer ── */
-        .footer {
-            background: var(--bg-surface);
-            padding: 4rem 0;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
+        .dock-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-family: var(--font-body);
+            font-size: 1.4rem;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            white-space: nowrap;
         }
-        .footer p { font-size: 1.5rem; color: var(--text-secondary); }
+        .dock-btn:hover, .dock-btn.active {
+            background: rgba(150, 150, 150, 0.15);
+            color: var(--text-main);
+        }
 
-        /* ── Scroll Animations ── */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-        }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        .dock-divider { width: 1px; height: 24px; background: var(--glass-border); flex-shrink: 0;}
 
-        /* ── Media Queries ── */
-        @media (max-width: 900px) {
-            .grid-2 { grid-template-columns: 1fr; }
-            .nav__links { display: none; }
-            .mobile-menu-btn { display: block; }
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            background: rgba(150, 150, 150, 0.1);
+            border: 1px solid var(--glass-border);
+            color: var(--text-main);
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            flex-shrink: 0;
         }
+        .theme-toggle:hover { background: rgba(150, 150, 150, 0.2); }
+
+        .nav-target { scroll-margin-top: 6rem; }
+
+        /* ── Responsive Adaptations ── */
+        @media (max-width: 1024px) {
+            .span-8, .span-6, .span-4 { grid-column: span 12; }
+            .glass-panel { padding: 3rem; }
+        }
+        
         @media (max-width: 768px) {
-            .sec-pad { padding: 7rem 0; }
-            .contact-box { padding: 4rem 2rem; }
+            .container { padding: 4rem 1.5rem; }
+            .glass-panel { padding: 2.5rem; border-radius: 24px; }
+            .bento-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+            .dock { padding: 0.8rem; gap: 0.5rem; border-radius: 24px; }
+            .dock-btn { padding: 0.8rem 1.2rem; font-size: 1.3rem; }
+            .theme-toggle { width: 3.5rem; height: 3.5rem; font-size: 1.5rem; }
+            .orb-1, .orb-2 { width: 100vw; height: 100vw; filter: blur(70px); }
         }
     </style>
 </head>
 <body>
 
-    <!-- ── HEADER ── -->
-    <header class="header">
-        <div class="container header__content">
-            <div class="logo-text" onclick="window.scrollTo(0,0)">
-                A<span>.</span>Adeboye
-            </div>
-            <nav class="nav__wrapper">
-                <ul class="nav__links">
-                    <li><a href="#about" class="nav__link">About</a></li>
-                    <li><a href="#resume" class="nav__link">Resume</a></li>
-                    <li><a href="#events" class="nav__link">Events</a></li>
-                    <li><a href="#projects" class="nav__link">Projects</a></li>
-                    <li><a href="#contact" class="nav__link">Contact</a></li>
-                </ul>
-                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">☀️</button>
-                <button class="mobile-menu-btn" aria-label="Toggle Navigation">
-                    <span></span><span></span><span></span>
-                </button>
-            </nav>
-        </div>
-        <!-- Mobile Dropdown -->
-        <div class="mobile-menu">
-            <a href="#about" class="mobile-menu__link">About</a>
-            <a href="#resume" class="mobile-menu__link">Resume</a>
-            <a href="#events" class="mobile-menu__link">Events</a>
-            <a href="#projects" class="mobile-menu__link">Projects</a>
-            <a href="#contact" class="mobile-menu__link">Contact</a>
-        </div>
-    </header>
+    <!-- Ambient Liquid Glass Background -->
+    <div class="ambient-bg"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
 
-    <!-- ── HERO ── -->
-    <section class="hero">
-        <div class="container hero__content reveal">
-            <h1 class="heading-primary">Adedolapo A. Adeboye, <span class="highlight-amber">SMNSE</span></h1>
-            <p>
-                <span class="highlight-cyan">Mechanical Engineering</span> undergraduate at the University of Ibadan. 
-                Bridging the gap between <span class="highlight-amber">Energy Systems</span>, <span class="highlight-amber">Robotics</span>, and <span class="highlight-amber">Cybersecurity</span>.
-            </p>
-            <div class="hero__cta">
-                <a href="#projects" class="btn btn--cyan">View Projects</a>
-                <a href="#resume" class="btn btn--outline">View Resume</a>
+    <main class="container">
+        
+        <!-- ── HERO BENTO ── -->
+        <div class="bento-grid nav-target" id="home">
+            <div class="glass-panel span-12" style="text-align: center; padding: 6rem 2rem;">
+                <h1 class="hero-title text-gradient">Adedolapo A. Adeboye, SMNSE</h1>
+                <p class="hero-subtitle" style="margin: 0 auto;">
+                    Mechanical Engineering Undergraduate || Robotics & Energy Systems || Cybersecurity
+                </p>
+                <div style="margin-top: 3rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem;">
+                    <a href="mailto:abrahamadeboye00@gmail.com" class="pill">Email Me</a>
+                    <a href="https://github.com/a-adeboye" target="_blank" class="pill">GitHub</a>
+                    <a href="https://www.linkedin.com/in/adedolapo-adeboye-smnse-59a2bb305" target="_blank" class="pill">LinkedIn</a>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- ── ABOUT & SKILLS ── -->
-    <section id="about" class="sec-pad" style="background: var(--bg-surface);">
-        <div class="container">
-            <h2 class="heading-sec__main reveal">Engineering & Security</h2>
-            <p class="heading-sec__sub reveal">Building resilient autonomous hardware, optimized energy systems, and secure control networks.</p>
+        <!-- ── ABOUT & SKILLS BENTO ── -->
+        <div class="bento-grid nav-target" id="profile">
+            <!-- Profile -->
+            <div class="glass-panel span-8">
+                <h2 class="section-title">Mission Matrix</h2>
+                <p class="item-desc" style="margin-bottom: 1.5rem;">
+                    I am a Mechanical Engineering undergraduate at the <span class="highlight">University of Ibadan</span> specializing in robotics, energy systems, and embedded technology. Recognizing the vital intersection of mechanical engineering and system security, I actively pursue Cybersecurity and Ethical Hacking to build physical devices, sensor networks, and autonomous hardware that are resilient against both structural and digital vulnerabilities.
+                </p>
+                <p class="item-desc">
+                    My technical expertise spans CAD modeling, CFD, FEA, C/C++, Python automation, PCB design, control systems, and cybersecurity analysis. I am driven by a commitment to advancing sustainable engineering solutions aligned with UN SDGs 3, 7, 9, 11, and 12, and am an active student member of the <span class="highlight">Nigerian Institution of Professional Engineers and Scientists (NIPES)</span>, ASME, SPE, IMechE, and NSE.
+                </p>
+            </div>
             
-            <div class="grid-2">
-                <div class="about__text reveal">
-                    <p>
-                        I am a Mechanical Engineering undergraduate at the University of Ibadan specializing in robotics, energy systems, and embedded technology. Recognizing the vital intersection of mechanical engineering and system security, I actively pursue Cybersecurity and Ethical Hacking to build physical devices, sensor networks, and autonomous hardware resilient against structural and digital vulnerabilities.
-                    </p>
-                    <p>
-                        My technical expertise spans CAD modeling, CFD, FEA, C/C++, Python automation, PCB design, control systems, and cybersecurity analysis. Driven by a commitment to sustainable engineering aligned with UN SDGs, I am an active student member of the <strong>Nigerian Institution of Professional Engineers and Scientists (NIPES)</strong>, ASME, SPE, IMechE, and NSE.
-                    </p>
+            <!-- Skills -->
+            <div class="glass-panel span-4">
+                <h2 class="section-title">Core Architecture</h2>
+                <div class="pill-list">
+                    <span class="pill">Python & C/C++</span>
+                    <span class="pill">CAD (Onshape)</span>
+                    <span class="pill">CFD & FEA</span>
+                    <span class="pill">PCB Design</span>
+                    <span class="pill">Control Systems</span>
+                    <span class="pill">Cybersecurity</span>
+                    <span class="pill">Web Automation</span>
+                    <span class="pill">Injection Molding</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── EXPERIENCE & EDUCATION BENTO ── -->
+        <div class="bento-grid nav-target" id="experience">
+            <!-- Education -->
+            <div class="glass-panel span-6">
+                <h2 class="section-title">Academic Foundation</h2>
+                
+                <div class="list-item">
+                    <div class="item-header">
+                        <h3 class="item-title">University of Ibadan</h3>
+                        <span class="item-meta">Mar 2026 - Present</span>
+                    </div>
+                    <p class="item-desc">Bachelor of Science in Mechanical Engineering<br><span class="highlight">Current CGPA: 4.38</span></p>
                 </div>
                 
-                <div class="card reveal">
-                    <h3 style="font-size: 2.4rem; margin-bottom: 2rem;">Core Competencies</h3>
-                    <div class="skills-list">
-                    	<span class="skill-tag">Python & C/C++</span>
-                        <span class="skill-tag">CAD Modeling (Onshape)</span>
-                        <span class="skill-tag">CFD & FEA</span>
-                        <span class="skill-tag">PCB Design</span>
-                        <span class="skill-tag">Control Systems</span>
-                        <span class="skill-tag">Cybersecurity Analysis</span>
-                        <span class="skill-tag">Web Automation & Scraping</span>
-                        <span class="skill-tag">Injection Molding QA/QC</span>
+                <div class="list-item">
+                    <div class="item-header">
+                        <h3 class="item-title">Greenhills College</h3>
+                        <span class="item-meta">Jul 2020 - Aug 2020</span>
                     </div>
+                    <p class="item-desc">Science (Technical) | Grade: B3</p>
+                </div>
+
+                <div class="list-item">
+                    <div class="item-header">
+                        <h3 class="item-title">St. Luke's Anglican Primary</h3>
+                        <span class="item-meta">Sep 2008 - Jul 2011</span>
+                    </div>
+                    <p class="item-desc">First School Leaving Certificate (100%) | Head Prefect</p>
+                </div>
+            </div>
+
+            <!-- Work Experience -->
+            <div class="glass-panel span-6">
+                <h2 class="section-title">Operational Experience</h2>
+                
+                <div class="list-item">
+                    <div class="item-header">
+                        <h3 class="item-title">Python Programming Intern</h3>
+                        <span class="item-meta">Aug 2026</span>
+                    </div>
+                    <p class="item-desc"><span class="highlight">CodeAlpha (Virtual):</span> Developed task automation scripts with regex file extraction, a console-based Hangman game, and a command-line stock investment portfolio tracker.</p>
+                </div>
+
+                <div class="list-item">
+                    <div class="item-header">
+                        <h3 class="item-title">Packer (Injection Molding)</h3>
+                        <span class="item-meta">Sep 2025 - Mar 2026</span>
+                    </div>
+                    <p class="item-desc"><span class="highlight">Poly Products Nigeria Limited:</span> Managed industrial injection molding operations (Tederic systems), executed QA/QC inspections, and monitored thermodynamic cycle times.</p>
+                </div>
+
+                <div class="list-item">
+                    <div class="item-header">
+                        <h3 class="item-title">Music Director</h3>
+                        <span class="item-meta">Nov 2026 - Present</span>
+                    </div>
+                    <p class="item-desc"><span class="highlight">CCCSPUI:</span> Leading the parish music unit through strategic coordination, vocal/instrumental arrangements, and team autonomy initiatives.</p>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- ── RESUME: EDUCATION & EXPERIENCE ── -->
-    <section id="resume" class="sec-pad">
-        <div class="container">
-            <h2 class="heading-sec__main reveal">Education & Experience</h2>
-            <p class="heading-sec__sub reveal">My academic foundation and hands-on industrial and technical journey.</p>
-            
-            <div class="grid-2">
-                <!-- Education Timeline -->
-                <div class="reveal">
-                    <h3 style="font-size: 2.8rem; margin-bottom: 3rem; color: var(--accent-cyan); font-family: var(--font-heading);">Education</h3>
-                    
-                    <div class="timeline-item">
-                        <span class="timeline-date">Mar 2026 - Present</span>
-                        <h4 class="timeline-title">University of Ibadan</h4>
-                        <p class="timeline-subtitle">Bachelor of Science in Mechanical Engineering</p>
-                        <p style="color: var(--text-secondary); font-size: 1.5rem;">Current CGPA: 4.38</p>
-                    </div>
-
-                    <div class="timeline-item">
-                        <span class="timeline-date">Jul 2020 - Aug 2020</span>
-                        <h4 class="timeline-title">Greenhills College</h4>
-                        <p class="timeline-subtitle">Science (Technical) | Grade: B3</p>
-                    </div>
-
-                    <div class="timeline-item">
-                        <span class="timeline-date">Sep 2008 - Jul 2011</span>
-                        <h4 class="timeline-title">St. Luke's Anglican Primary School</h4>
-                        <p class="timeline-subtitle">First School Leaving Certificate (100%) | Head Prefect</p>
-                    </div>
+        <!-- ── AWARDS, CERTS & VOLUNTEER BENTO ── -->
+        <div class="bento-grid nav-target" id="achievements">
+            <!-- Certifications & Scholarships -->
+            <div class="glass-panel span-6">
+                <h2 class="section-title">Awards & Certifications</h2>
+                <div class="list-item">
+                    <h3 class="item-title">Scholarships</h3>
+                    <p class="item-desc mt-2">
+                        • <span class="highlight">Impact-X Drive:</span> Data Science (Nov 2026)<br>
+                        • <span class="highlight">Sundry Market Limited:</span> Academic Scholarship (Sep 2026)<br>
+                        • <span class="highlight">Ingressive4Good (I4G):</span> Cybersecurity Analysis (Jan 2024)
+                    </p>
                 </div>
+                <div class="list-item">
+                    <h3 class="item-title">Licenses & Certificates</h3>
+                    <p class="item-desc mt-2">
+                        • <span class="highlight">Onshape by PTC:</span> Parametric Feature-Based CAD & Sketching (Aug 2026)<br>
+                        • <span class="highlight">Decibels Lab:</span> Battery Pack Design and Manufacturing (Aug 2026)<br>
+                        • <span class="highlight">Cisco Networking Academy:</span> Intro to Cybersecurity (Jul 2024) & Network Essentials (Apr 2023)
+                    </p>
+                </div>
+            </div>
 
-                <!-- Experience Timeline -->
-                <div class="reveal">
-                    <h3 style="font-size: 2.8rem; margin-bottom: 3rem; color: var(--accent-amber); font-family: var(--font-heading);">Experience</h3>
-                    
-                    <div class="timeline-item">
-                        <span class="timeline-date">Aug 2026</span>
-                        <h4 class="timeline-title">Python Programming Intern</h4>
-                        <p class="timeline-subtitle">CodeAlpha (Virtual)</p>
-                        <p style="color: var(--text-secondary); font-size: 1.5rem;">Developed task automation scripts, a console-based Hangman game, and a command-line stock investment tracker.</p>
+            <!-- Volunteering -->
+            <div class="glass-panel span-6">
+                <h2 class="section-title">Leadership & Volunteering</h2>
+                <div class="list-item">
+                    <div class="item-header">
+                        <h3 class="item-title">Organising & Technical Team</h3>
+                        <span class="item-meta">Sep 2026</span>
                     </div>
-
-                    <div class="timeline-item">
-                        <span class="timeline-date">Sep 2025 - Mar 2026</span>
-                        <h4 class="timeline-title">Industrial Packer</h4>
-                        <p class="timeline-subtitle">Poly Products Nigeria Limited (Ogun, NG)</p>
-                        <p style="color: var(--text-secondary); font-size: 1.5rem;">Managed industrial injection molding operations (Tederic systems), executing QA/QC inspections and cycle-time monitoring.</p>
+                    <p class="item-desc"><span class="highlight">The Impact-X Global Nexus:</span> Coordinated seating arrangements, speaker logistics, and managed sound system operations for the Campus Drive UI event.</p>
+                </div>
+                <div class="list-item">
+                    <div class="item-header">
+                        <h3 class="item-title">Organising Committee</h3>
+                        <span class="item-meta">Jul 2026 - Aug 2026</span>
                     </div>
-
-                    <div class="timeline-item">
-                        <span class="timeline-date">Nov 2026 - Present</span>
-                        <h4 class="timeline-title">Music Director</h4>
-                        <p class="timeline-subtitle">CCCSPUI</p>
-                        <p style="color: var(--text-secondary); font-size: 1.5rem;">Orchestrating musical performances and leading vocal/instrumental arrangements while fostering team autonomy and welfare.</p>
-                    </div>
+                    <p class="item-desc"><span class="highlight">CCCSPUI Singles' Week:</span> Executed comprehensive operational plans, logistics, and directed media/publicity efforts for a major student event.</p>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- ── SCHOLARSHIPS & CERTIFICATES ── -->
-    <section class="sec-pad" style="background: var(--bg-surface);">
-        <div class="container">
-            <h2 class="heading-sec__main reveal">Awards & Certifications</h2>
-            <p class="heading-sec__sub reveal">Recognitions and technical qualifications.</p>
-            
-            <div class="grid-2">
-                <!-- Scholarships -->
-                <div class="card reveal">
-                    <h3 style="font-size: 2.2rem; margin-bottom: 2rem; color: var(--accent-cyan); font-family: var(--font-heading);">Scholarships & Awards</h3>
-                    <ul class="award-list">
-                        <li class="award-item">
-                            <div class="award-icon">🏆</div>
-                            <div class="award-details">
-                                <h4>Impact-X Drive Scholarship</h4>
-                                <p>Awarded to study Data Science (Nov 2026).</p>
-                            </div>
-                        </li>
-                        <li class="award-item">
-                            <div class="award-icon">🏆</div>
-                            <div class="award-details">
-                                <h4>Sundry Market Limited Scholarship</h4>
-                                <p>Awarded by Sundry Market Limited (Sep 2026).</p>
-                            </div>
-                        </li>
-                        <li class="award-item">
-                            <div class="award-icon">🛡️</div>
-                            <div class="award-details">
-                                <h4>I4G Cybersecurity Scholarship</h4>
-                                <p>Awarded by Ingressive4Good for Cybersecurity Analysis (Jan 2024).</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Certifications -->
-                <div class="card reveal">
-                    <h3 style="font-size: 2.2rem; margin-bottom: 2rem; color: var(--accent-amber); font-family: var(--font-heading);">Licenses & Certifications</h3>
-                    <ul class="award-list">
-                        <li class="award-item">
-                            <div class="award-icon">⚙️</div>
-                            <div class="award-details">
-                                <h4>Onshape by PTC</h4>
-                                <p>Intro to Parametric Feature-Based CAD & Intro to Sketching (Aug 2026).</p>
-                            </div>
-                        </li>
-                        <li class="award-item">
-                            <div class="award-icon">🔋</div>
-                            <div class="award-details">
-                                <h4>Battery Pack Design and Manufacturing</h4>
-                                <p>Decibels Lab (Aug 2026).</p>
-                            </div>
-                        </li>
-                        <li class="award-item">
-                            <div class="award-icon">💻</div>
-                            <div class="award-details">
-                                <h4>Cisco Networking Academy</h4>
-                                <p>Introduction to Cybersecurity (Jul 2024) & Network Essentials (Apr 2023).</p>
-                            </div>
-                        </li>
-                    </ul>
+        <!-- ── GITHUB PROJECTS BENTO ── -->
+        <div class="bento-grid nav-target" id="projects">
+            <div class="glass-panel span-12">
+                <h2 class="section-title">Live Datastream (Projects)</h2>
+                <div id="github-projects" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                    <!-- Projects injected here -->
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- ── VOLUNTEER & EVENTS ── -->
-    <section id="events" class="sec-pad">
-        <div class="container">
-            <h2 class="heading-sec__main reveal">Volunteer & Events</h2>
-            <p class="heading-sec__sub reveal">Organizing technical operations and executing campus-wide programs.</p>
-            
-            <div class="grid-3">
-                <div class="card reveal">
-                    <span style="color: var(--accent-amber); font-size: 1.3rem; font-weight: 700; text-transform: uppercase;">Sep 2026</span>
-                    <h3 style="font-size: 2rem; margin: 1rem 0;">Organising & Technical Team</h3>
-                    <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 1rem;">The Impact-X Global Nexus</p>
-                    <p style="font-size: 1.5rem; color: var(--text-secondary);">Coordinated seating arrangements, speaker logistics, and managed sound system operations for the Campus Drive UI event, ensuring seamless delivery.</p>
-                </div>
+    </main>
 
-                <div class="card reveal">
-                    <span style="color: var(--accent-amber); font-size: 1.3rem; font-weight: 700; text-transform: uppercase;">Jul 2026 - Aug 2026</span>
-                    <h3 style="font-size: 2rem; margin: 1rem 0;">Organising Committee Member</h3>
-                    <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 1rem;">CCCSPUI Singles' Week</p>
-                    <p style="font-size: 1.5rem; color: var(--text-secondary);">Executed comprehensive operational plans and managed logistics for a major student event. Directed media and publicity efforts to maximize visibility and documentation.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- ── FLOATING SPATIAL DOCK ── -->
+    <div class="dock-container">
+        <nav class="dock">
+            <a href="#home" class="dock-btn active">Home</a>
+            <a href="#profile" class="dock-btn">Profile</a>
+            <a href="#experience" class="dock-btn">Experience</a>
+            <a href="#achievements" class="dock-btn">Awards</a>
+            <a href="#projects" class="dock-btn">Projects</a>
+            <div class="dock-divider"></div>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Environment">☀️</button>
+        </nav>
+    </div>
 
-    <!-- ── PROJECTS (GITHUB) ── -->
-    <section id="projects" class="sec-pad" style="background: var(--bg-surface);">
-        <div class="container">
-            <h2 class="heading-sec__main reveal">Technical Projects</h2>
-            <p class="heading-sec__sub reveal">Recent repositories fetched directly from my GitHub.</p>
-            
-            <div id="github-projects" class="grid-2 reveal">
-                <!-- Repos injected here via JS -->
-            </div>
-        </div>
-    </section>
-
-    <!-- ── CONTACT ── -->
-    <section id="contact" class="sec-pad">
-        <div class="container reveal">
-            <div class="contact-box">
-                <h2 class="heading-sec__main">Let's Connect</h2>
-                <p>Whether you want to discuss robotics, energy engineering, cybersecurity, or collaboration opportunities, my inbox is always open.</p>
-                <div class="contact-links">
-                    <a href="mailto:abrahamadeboye00@gmail.com" class="contact-link">
-                        📧 Email Me
-                    </a>
-                    <a href="https://github.com/a-adeboye" target="_blank" class="contact-link">
-                        💻 GitHub
-                    </a>
-                    <a href="https://www.linkedin.com/in/adedolapo-adeboye-smnse-59a2bb305" target="_blank" class="contact-link">
-                        💼 LinkedIn
-                    </a>
-                    <a href="https://x.com/@damiano_esher" target="_blank" class="contact-link">
-                        🐦 Twitter/X
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── FOOTER ── -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Adedolapo Adeboye, SMNSE. Designed for the future of Mechanical Engineering.</p>
-        </div>
-    </footer>
-
-    <!-- ── SCRIPTS ── -->
     <script>
-        // Theme Toggle
+        // ── VisionOS Theme Toggle ──
         const themeBtn = document.getElementById('theme-toggle');
         const body = document.body;
         
         themeBtn.addEventListener('click', () => {
             body.classList.toggle('light-mode');
-            if(body.classList.contains('light-mode')) {
-                themeBtn.textContent = '🌙';
-            } else {
-                themeBtn.textContent = '☀️';
-            }
+            themeBtn.textContent = body.classList.contains('light-mode') ? '🌙' : '☀️';
         });
 
-        // Mobile Menu Toggle
-        const btn = document.querySelector('.mobile-menu-btn');
-        const menu = document.querySelector('.mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-menu__link');
-
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('open');
-        });
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.remove('open');
+        // ── Smooth Scroll & Active Dock State ──
+        const dockLinks = document.querySelectorAll('.dock-btn');
+        const sections = document.querySelectorAll('.nav-target');
+        
+        // Click behavior
+        dockLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                dockLinks.forEach(btn => btn.classList.remove('active'));
+                e.target.classList.add('active');
             });
         });
 
-        // Active Nav Link Update
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav__link');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (scrollY >= sectionTop - 150) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Intersection Observer for Scroll Animations
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver((entries, observer) => {
+        // Scroll observer to update active dock link
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
+                    dockLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').substring(1) === entry.target.id) {
+                            link.classList.add('active');
+                            // Ensure active link stays visible in scrolled dock on mobile
+                            link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                        }
+                    });
                 }
             });
-        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+        }, { threshold: 0.2, rootMargin: "-100px 0px -100px 0px" });
 
-        revealElements.forEach(el => revealObserver.observe(el));
+        sections.forEach(sec => observer.observe(sec));
 
-        // GitHub Repo Fetcher
+        // ── GitHub Repo Fetcher (Spatial UI Cards) ──
         async function loadRepos() {
             const username = 'a-adeboye';
             const container = document.getElementById('github-projects');
@@ -832,17 +533,24 @@
                     .slice(0, 4) 
                     .forEach(repo => {
                         const card = document.createElement('div');
-                        card.className = 'card';
-                        card.style.borderLeft = '4px solid var(--accent-cyan)';
+                        // Inner glass card for projects
+                        card.style.background = 'var(--glass-highlight)';
+                        card.style.padding = '2.5rem';
+                        card.style.borderRadius = '24px';
+                        card.style.border = '1px solid var(--glass-border)';
+                        card.style.transition = 'var(--transition-smooth)';
+                        
                         card.innerHTML = `
-                            <h3 style="font-size: 2.2rem; margin-bottom: 1rem; font-family: var(--font-heading); color: var(--text-primary);">${repo.name}</h3>
-                            <p style="font-size: 1.5rem; color: var(--text-secondary); margin-bottom: 2rem;">${repo.description || 'Open-source engineering script or project.'}</p>
-                            <a href="${repo.html_url}" target="_blank" class="btn btn--outline" style="padding: 1rem 2rem; font-size: 1.4rem;">View Code</a>
+                            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; font-family: var(--font-heading); font-weight: 700;">${repo.name}</h3>
+                            <p style="font-size: 1.4rem; color: var(--text-muted); margin-bottom: 2rem; min-height: 4rem;">
+                                ${repo.description || 'System engineering module or script data.'}
+                            </p>
+                            <a href="${repo.html_url}" target="_blank" class="pill" style="display: inline-block; text-align: center; width: 100%;">View Code</a>
                         `;
                         container.appendChild(card);
                     });
             } catch (err) {
-                container.innerHTML = `<p style="text-align:center; color:var(--text-secondary); grid-column: 1/-1;">Unable to load repositories at this time.</p>`;
+                container.innerHTML = `<p style="color:var(--text-muted);">Repository datastream unavailable.</p>`;
             }
         }
         loadRepos();
