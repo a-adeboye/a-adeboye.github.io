@@ -3,65 +3,45 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Adedolapo Abraham Adeboye | Mechanical Engineering & Robotics Portfolio</title>
-    <meta name="description" content="Portfolio of Adedolapo A. Adeboye, a Mechanical Engineering student at the University of Ibadan specializing in Energy Engineering, Robotics, and automation." />
-    <meta name="keywords" content="Adedolapo Adeboye, Adedolapo Abraham Adeboye, Adedolapo A Adeboye, Mechanical Engineering, University of Ibadan, Robotics, Energy Engineering, Automation, AMES, NIMechE-UI, Cybersecurity">
-    <link rel="canonical" href="https://a-adeboye.github.io/" />
-    <meta name="google-site-verification" content="google2a10278780f93eb8" />
-    <meta property="og:title" content="Adedolapo Abraham Adeboye | Engineering Portfolio" />
-    <meta property="og:description" content="I am a Mechanical Engineering student at the University of Ibadan focused on the intersection of energy systems, robotics, and cybersecurity. Explore my projects and engineering journey." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://a-adeboye.github.io/" />
-    <meta property="og:image" content="https://a-adeboye.github.io/og-image.jpg" />
+    <title>Adedolapo Abraham Adeboye, SMNSE | Engineering Portfolio</title>
+    <meta name="description" content="Portfolio of Adedolapo A. Adeboye, SMNSE, a Mechanical Engineering student at the University of Ibadan specializing in Energy Engineering, Robotics, and automation." />
+    <meta name="keywords" content="Adedolapo Adeboye, Adedolapo Abraham Adeboye, SMNSE, Mechanical Engineering, University of Ibadan, Robotics, Energy Engineering, Automation, AMES, NIMechE-UI, Cybersecurity">
     
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Adedolapo Adeboye | Engineering Portfolio" />
-    <meta name="twitter:description" content="Mechanical Engineering student at the University of Ibadan exploring robotics, energy systems, and cybersecurity." />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;700;800;900&display=swap" rel="stylesheet" />
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "ProfilePage",
-            "name": "Adedolapo Abraham Adeboye",
-            "description": "Mechanical Engineering student at the University of Ibadan focused on the intersection of energy systems, robotics, and system security.",
-            "url": "https://a-adeboye.github.io/",
-            "mainEntity": {
-                "@type": "Person",
-                "name": "Adedolapo Adeboye",
-                "alternateName": ["Adedolapo Abraham Adeboye", "Adedolapo A Adeboye"],
-                "jobTitle": "Mechanical Engineering Student",
-                "affiliation": {
-                    "@type": "EducationalOrganization",
-                    "name": "University of Ibadan"
-                },
-                "email": "abrahamadeboye00@gmail.com",
-                "sameAs": [
-                    "https://github.com/a-adeboye",
-                    "https://www.linkedin.com/in/adedolapo-adeboye-smnse-59a2bb305",
-                    "https://x.com/@damiano_esher"
-                ],
-                "knowsAbout": ["Energy Engineering", "Robotics", "Cybersecurity", "Python", "CAD", "Onshape", "Injection Molding"]
-            }
-        }
-    </script>
+    <!-- Updated Fonts: Cinzel for Headings, Raleway for Body -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
     <style>
         /* ── CSS Variables & Theming ── */
         :root {
-            --bg-main: #0f172a; /* Deep Slate */
-            --bg-surface: #1e293b; /* Slate surface */
+            /* Dark Mode (Default) */
+            --bg-main: #0f172a; 
+            --bg-surface: #1e293b; 
             --bg-surface-hover: #334155;
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --accent-cyan: #06b6d4;
             --accent-cyan-hover: #22d3ee;
             --accent-amber: #f59e0b;
-            --font-heading: 'Poppins', sans-serif;
-            --font-body: 'Inter', sans-serif;
+            --border-color: rgba(255, 255, 255, 0.05);
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Raleway', sans-serif;
             --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Light Mode Overrides */
+        body.light-mode {
+            --bg-main: #f8fafc;
+            --bg-surface: #ffffff;
+            --bg-surface-hover: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --shadow-color: rgba(0, 0, 0, 0.05);
         }
 
         /* ── Reset & Base ── */
@@ -85,6 +65,7 @@
             line-height: 1.7;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
 
         a { text-decoration: none; color: inherit; }
@@ -98,18 +79,16 @@
         }
 
         .heading-primary {
-            font-size: clamp(4rem, 8vw, 7rem);
-            font-weight: 900;
-            letter-spacing: -1px;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-cyan) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: clamp(3.5rem, 6vw, 6.5rem);
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: var(--text-primary);
             margin-bottom: 1.5rem;
         }
 
         .heading-sec__main {
-            font-size: clamp(3rem, 5vw, 4.5rem);
-            font-weight: 800;
+            font-size: clamp(2.8rem, 5vw, 4rem);
+            font-weight: 700;
             color: var(--text-primary);
             text-align: center;
             display: block;
@@ -136,7 +115,7 @@
             padding: 0 3rem;
         }
 
-        .sec-pad { padding: 10rem 0; }
+        .sec-pad { padding: 9rem 0; }
         
         /* ── Buttons ── */
         .btn {
@@ -145,17 +124,18 @@
             justify-content: center;
             padding: 1.4rem 3.2rem;
             font-size: 1.6rem;
-            font-weight: 600;
+            font-weight: 700;
             font-family: var(--font-heading);
             border-radius: 8px;
             transition: var(--transition-smooth);
             cursor: pointer;
             border: 2px solid transparent;
+            letter-spacing: 1px;
         }
 
         .btn--cyan {
             background-color: var(--accent-cyan);
-            color: var(--bg-main);
+            color: #0f172a; /* Keep text dark for contrast */
         }
 
         .btn--cyan:hover {
@@ -173,7 +153,6 @@
         .btn--outline:hover {
             background-color: rgba(245, 158, 11, 0.1);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.15);
         }
 
         /* ── Header & Nav ── */
@@ -181,12 +160,16 @@
             position: fixed;
             top: 0; left: 0; width: 100%;
             z-index: 1000;
-            background: rgba(15, 23, 42, 0.85);
+            background: var(--bg-main);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid var(--border-color);
             transition: var(--transition-smooth);
         }
+
+        /* Make background slightly transparent */
+        body:not(.light-mode) .header { background: rgba(15, 23, 42, 0.85); }
+        body.light-mode .header { background: rgba(248, 250, 252, 0.85); }
 
         .header__content {
             display: flex;
@@ -197,25 +180,30 @@
 
         .logo-text {
             font-family: var(--font-heading);
-            font-size: 2.4rem;
+            font-size: 2.2rem;
             font-weight: 800;
             color: var(--text-primary);
             cursor: pointer;
-            letter-spacing: -0.5px;
         }
 
         .logo-text span {
             color: var(--accent-cyan);
         }
 
+        .nav__wrapper {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
         .nav__links {
             display: flex;
-            gap: 3rem;
+            gap: 2.5rem;
         }
 
         .nav__link {
             font-size: 1.5rem;
-            font-weight: 500;
+            font-weight: 600;
             color: var(--text-secondary);
             transition: var(--transition-smooth);
             text-transform: uppercase;
@@ -234,12 +222,28 @@
             transition: width 0.3s ease;
         }
 
-        .nav__link:hover, .nav__link.active {
+        .nav__link:hover, .nav__link.active { color: var(--text-primary); }
+        .nav__link:hover::after, .nav__link.active::after { width: 100%; }
+
+        /* Theme Toggle */
+        .theme-toggle-btn {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
             color: var(--text-primary);
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.8rem;
+            transition: var(--transition-smooth);
         }
 
-        .nav__link:hover::after, .nav__link.active::after {
-            width: 100%;
+        .theme-toggle-btn:hover {
+            background: var(--bg-surface-hover);
+            transform: rotate(15deg);
         }
 
         .mobile-menu-btn {
@@ -274,7 +278,7 @@
             padding: 2rem 0;
             clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
             transition: clip-path 0.4s ease-in-out;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 40px var(--shadow-color);
         }
 
         .mobile-menu.open {
@@ -288,7 +292,7 @@
             font-size: 1.8rem;
             font-weight: 600;
             color: var(--text-primary);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid var(--border-color);
         }
 
         /* ── Hero Section ── */
@@ -300,7 +304,6 @@
             text-align: center;
             position: relative;
             padding-top: 8rem;
-            background: radial-gradient(circle at 50% 30%, rgba(6, 182, 212, 0.08) 0%, transparent 60%);
         }
 
         .hero__content p {
@@ -317,40 +320,31 @@
             flex-wrap: wrap;
         }
 
-        /* ── About Section ── */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
-            align-items: center;
+        /* ── Grids & Cards Base ── */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; }
+        
+        .card {
+            background: var(--bg-surface);
+            border-radius: 12px;
+            padding: 3rem;
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 6px var(--shadow-color);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px var(--shadow-color);
+            border-color: var(--accent-cyan);
         }
 
+        /* ── About Section ── */
         .about__text p {
             font-size: 1.8rem;
             color: var(--text-secondary);
             margin-bottom: 2rem;
         }
-
-        .skills-container {
-            background: var(--bg-surface);
-            padding: 4rem;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .skills-container h3 {
-            font-size: 2.4rem;
-            margin-bottom: 2rem;
-            color: var(--text-primary);
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.2rem;
-        }
-
+        .skills-list { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
         .skill-tag {
             background: rgba(6, 182, 212, 0.1);
             color: var(--accent-cyan);
@@ -359,91 +353,61 @@
             font-size: 1.4rem;
             font-weight: 600;
             border: 1px solid rgba(6, 182, 212, 0.2);
-            transition: var(--transition-smooth);
         }
 
-        .skill-tag:hover {
-            background: var(--accent-cyan);
-            color: var(--bg-main);
+        /* ── Timeline (Education & Experience) ── */
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 3rem;
+            border-left: 2px solid var(--accent-amber);
         }
-
-        /* ── Experience Section ── */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 3rem;
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--accent-amber);
+            border: 3px solid var(--bg-main);
         }
-
-        .blog-card {
-            background: var(--bg-surface);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: var(--transition-smooth);
-        }
-
-        .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-            border-color: rgba(6, 182, 212, 0.3);
-        }
-
-        .blog-card__content {
-            padding: 3rem 2.5rem;
-        }
-
-        .blog-card__date {
-            font-size: 1.3rem;
-            color: var(--accent-amber);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .timeline-date {
+            font-size: 1.4rem;
+            color: var(--accent-cyan);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
             display: block;
-            margin-bottom: 1rem;
         }
-
-        .blog-card__title {
+        .timeline-title {
             font-size: 2rem;
-            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
         }
-
-        .blog-card__desc {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-        }
-
-        /* ── Projects (GitHub Fetch) ── */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        .repo-card {
-            background: var(--bg-surface);
-            padding: 3rem;
-            border-radius: 12px;
-            border-left: 4px solid var(--accent-cyan);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: var(--transition-smooth);
-        }
-
-        .repo-card:hover {
-            background: var(--bg-surface-hover);
-            transform: translateX(5px);
-        }
-
-        .repo-card h3 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .repo-card p {
+        .timeline-subtitle {
             font-size: 1.6rem;
             color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 1rem;
         }
+
+        /* ── Awards & Certifications ── */
+        .award-list {
+            list-style: none;
+        }
+        .award-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .award-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .award-icon { font-size: 2.4rem; }
+        .award-details h4 { font-size: 1.8rem; color: var(--text-primary); }
+        .award-details p { font-size: 1.4rem; color: var(--text-secondary); }
 
         /* ── Contact Section ── */
         .contact-box {
@@ -453,31 +417,27 @@
             text-align: center;
             max-width: 80rem;
             margin: 0 auto;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid var(--border-color);
             position: relative;
             overflow: hidden;
         }
-
         .contact-box::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 4px;
             background: linear-gradient(90deg, var(--accent-cyan), var(--accent-amber));
         }
-
         .contact-box p {
             font-size: 1.8rem;
             margin-bottom: 3rem;
             color: var(--text-secondary);
         }
-
         .contact-links {
             display: flex;
             justify-content: center;
             gap: 3rem;
             flex-wrap: wrap;
         }
-
         .contact-link {
             font-size: 1.8rem;
             color: var(--text-primary);
@@ -487,21 +447,16 @@
             gap: 1rem;
             transition: color 0.2s;
         }
-
         .contact-link:hover { color: var(--accent-cyan); }
 
         /* ── Footer ── */
         .footer {
-            background: #0b1121;
+            background: var(--bg-surface);
             padding: 4rem 0;
             text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            border-top: 1px solid var(--border-color);
         }
-
-        .footer p {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-        }
+        .footer p { font-size: 1.5rem; color: var(--text-secondary); }
 
         /* ── Scroll Animations ── */
         .reveal {
@@ -509,20 +464,15 @@
             transform: translateY(40px);
             transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
         }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
         /* ── Media Queries ── */
         @media (max-width: 900px) {
-            .about-grid { grid-template-columns: 1fr; gap: 4rem; }
-            .repo-card { flex-direction: column; align-items: flex-start; gap: 2rem; }
-        }
-
-        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
             .nav__links { display: none; }
             .mobile-menu-btn { display: block; }
+        }
+        @media (max-width: 768px) {
             .sec-pad { padding: 7rem 0; }
             .contact-box { padding: 4rem 2rem; }
         }
@@ -536,13 +486,15 @@
             <div class="logo-text" onclick="window.scrollTo(0,0)">
                 A<span>.</span>Adeboye
             </div>
-            <nav>
+            <nav class="nav__wrapper">
                 <ul class="nav__links">
                     <li><a href="#about" class="nav__link">About</a></li>
-                    <li><a href="#experience" class="nav__link">Experience</a></li>
+                    <li><a href="#resume" class="nav__link">Resume</a></li>
+                    <li><a href="#events" class="nav__link">Events</a></li>
                     <li><a href="#projects" class="nav__link">Projects</a></li>
                     <li><a href="#contact" class="nav__link">Contact</a></li>
                 </ul>
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">☀️</button>
                 <button class="mobile-menu-btn" aria-label="Toggle Navigation">
                     <span></span><span></span><span></span>
                 </button>
@@ -551,7 +503,8 @@
         <!-- Mobile Dropdown -->
         <div class="mobile-menu">
             <a href="#about" class="mobile-menu__link">About</a>
-            <a href="#experience" class="mobile-menu__link">Experience</a>
+            <a href="#resume" class="mobile-menu__link">Resume</a>
+            <a href="#events" class="mobile-menu__link">Events</a>
             <a href="#projects" class="mobile-menu__link">Projects</a>
             <a href="#contact" class="mobile-menu__link">Contact</a>
         </div>
@@ -560,36 +513,36 @@
     <!-- ── HERO ── -->
     <section class="hero">
         <div class="container hero__content reveal">
-            <h1 class="heading-primary">Adedolapo A. Adeboye</h1>
+            <h1 class="heading-primary">Adedolapo A. Adeboye, <span class="highlight-amber">SMNSE</span></h1>
             <p>
-                <span class="highlight-cyan">Mechanical Engineering</span> undergraduate at the University of Ibadan[cite: 1]. 
-                Bridging the gap between <span class="highlight-amber">Energy Systems</span>, <span class="highlight-amber">Robotics</span>, and <span class="highlight-amber">Cybersecurity</span>[cite: 1].
+                <span class="highlight-cyan">Mechanical Engineering</span> undergraduate at the University of Ibadan. 
+                Bridging the gap between <span class="highlight-amber">Energy Systems</span>, <span class="highlight-amber">Robotics</span>, and <span class="highlight-amber">Cybersecurity</span>.
             </p>
             <div class="hero__cta">
                 <a href="#projects" class="btn btn--cyan">View Projects</a>
-                <a href="#contact" class="btn btn--outline">Get in Touch</a>
+                <a href="#resume" class="btn btn--outline">View Resume</a>
             </div>
         </div>
     </section>
 
-    <!-- ── ABOUT ── -->
-    <section id="about" class="sec-pad">
+    <!-- ── ABOUT & SKILLS ── -->
+    <section id="about" class="sec-pad" style="background: var(--bg-surface);">
         <div class="container">
             <h2 class="heading-sec__main reveal">Engineering & Security</h2>
-            <p class="heading-sec__sub reveal">Building resilient autonomous hardware, optimized energy systems, and secure control networks[cite: 1].</p>
+            <p class="heading-sec__sub reveal">Building resilient autonomous hardware, optimized energy systems, and secure control networks.</p>
             
-            <div class="about-grid">
+            <div class="grid-2">
                 <div class="about__text reveal">
                     <p>
-                        I am a Mechanical Engineering undergraduate at the University of Ibadan specializing in robotics, energy systems, and embedded technology[cite: 1]. Recognizing the vital intersection of mechanical engineering and system security, I actively pursue Cybersecurity and Ethical Hacking to build physical devices, sensor networks, and autonomous hardware that are resilient against both structural and digital vulnerabilities[cite: 1].
+                        I am a Mechanical Engineering undergraduate at the University of Ibadan specializing in robotics, energy systems, and embedded technology. Recognizing the vital intersection of mechanical engineering and system security, I actively pursue Cybersecurity and Ethical Hacking to build physical devices, sensor networks, and autonomous hardware resilient against structural and digital vulnerabilities.
                     </p>
                     <p>
-                        My technical expertise spans CAD modeling, CFD, FEA, C/C++, Python automation, PCB design, control systems, and cybersecurity analysis, driven by a commitment to advancing sustainable engineering solutions aligned with UN SDGs 3, 7, 9, 11, and 12[cite: 1]. I actively serve in technical societies including ASME, SPE, IMechE, NIPES, and NSE[cite: 2].
+                        My technical expertise spans CAD modeling, CFD, FEA, C/C++, Python automation, PCB design, control systems, and cybersecurity analysis. Driven by a commitment to sustainable engineering aligned with UN SDGs, I am an active student member of the <strong>Nigerian Institution of Professional Engineers and Scientists (NIPES)</strong>, ASME, SPE, IMechE, and NSE.
                     </p>
                 </div>
                 
-                <div class="skills-container reveal">
-                    <h3>Core Competencies</h3>
+                <div class="card reveal">
+                    <h3 style="font-size: 2.4rem; margin-bottom: 2rem;">Core Competencies</h3>
                     <div class="skills-list">
                     	<span class="skill-tag">Python & C/C++</span>
                         <span class="skill-tag">CAD Modeling (Onshape)</span>
@@ -605,50 +558,163 @@
         </div>
     </section>
 
-    <!-- ── EXPERIENCE & HIGHLIGHTS ── -->
-    <section id="experience" class="sec-pad" style="background: var(--bg-surface);">
+    <!-- ── RESUME: EDUCATION & EXPERIENCE ── -->
+    <section id="resume" class="sec-pad">
         <div class="container">
-            <h2 class="heading-sec__main reveal">Work Experience & Leadership</h2>
-            <p class="heading-sec__sub reveal">Hands-on industrial operations, software development, and community leadership[cite: 1].</p>
+            <h2 class="heading-sec__main reveal">Education & Experience</h2>
+            <p class="heading-sec__sub reveal">My academic foundation and hands-on industrial and technical journey.</p>
             
-            <div class="blog-grid">
-                <!-- Experience Post 1 -->
-                <div class="blog-card reveal">
-                    <div class="blog-card__content">
-                        <span class="blog-card__date">Aug 2026 - Aug 2026 · Virtual</span>
-                        <h3 class="blog-card__title">Python Programming Intern | CodeAlpha</h3>
-                        <p class="blog-card__desc">Applied core logic and automation skills to develop practical applications. Created a console-based Hangman game, built a web automation script utilizing regular expressions for file extraction, and developed a command-line stock investment portfolio tracker[cite: 1, 2].</p>
+            <div class="grid-2">
+                <!-- Education Timeline -->
+                <div class="reveal">
+                    <h3 style="font-size: 2.8rem; margin-bottom: 3rem; color: var(--accent-cyan); font-family: var(--font-heading);">Education</h3>
+                    
+                    <div class="timeline-item">
+                        <span class="timeline-date">Mar 2026 - Present</span>
+                        <h4 class="timeline-title">University of Ibadan</h4>
+                        <p class="timeline-subtitle">Bachelor of Science in Mechanical Engineering</p>
+                        <p style="color: var(--text-secondary); font-size: 1.5rem;">Current CGPA: 4.38</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="timeline-date">Jul 2020 - Aug 2020</span>
+                        <h4 class="timeline-title">Greenhills College</h4>
+                        <p class="timeline-subtitle">Science (Technical) | Grade: B3</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="timeline-date">Sep 2008 - Jul 2011</span>
+                        <h4 class="timeline-title">St. Luke's Anglican Primary School</h4>
+                        <p class="timeline-subtitle">First School Leaving Certificate (100%) | Head Prefect</p>
                     </div>
                 </div>
 
-                <!-- Experience Post 2 -->
-                <div class="blog-card reveal">
-                    <div class="blog-card__content">
-                        <span class="blog-card__date">Sep 2025 - Mar 2026 · Ogun, Nigeria</span>
-                        <h3 class="blog-card__title">Packer | Poly Products Nigeria</h3>
-                        <p class="blog-card__desc">Managed industrial injection molding operations utilizing Tederic systems. Monitored cooling times, blended raw polymer materials with masterbatch colorants, and meticulously inspected finished products against stringent QA/QC specifications to meet target cycle times[cite: 1, 2].</p>
+                <!-- Experience Timeline -->
+                <div class="reveal">
+                    <h3 style="font-size: 2.8rem; margin-bottom: 3rem; color: var(--accent-amber); font-family: var(--font-heading);">Experience</h3>
+                    
+                    <div class="timeline-item">
+                        <span class="timeline-date">Aug 2026</span>
+                        <h4 class="timeline-title">Python Programming Intern</h4>
+                        <p class="timeline-subtitle">CodeAlpha (Virtual)</p>
+                        <p style="color: var(--text-secondary); font-size: 1.5rem;">Developed task automation scripts, a console-based Hangman game, and a command-line stock investment tracker.</p>
                     </div>
-                </div>
 
-                <!-- Experience Post 3 -->
-                <div class="blog-card reveal">
-                    <div class="blog-card__content">
-                        <span class="blog-card__date">Nov 2026 - Present · Ibadan, Nigeria</span>
-                        <h3 class="blog-card__title">Music Director | CCCSPUI</h3>
-                        <p class="blog-card__desc">Leading the parish music unit through strategic coordination of choir, vocal, and instrumental teams. Empowered personnel through strategic delegation and championed member welfare, balancing technical musical excellence with holistic well-being and operational autonomy[cite: 1].</p>
+                    <div class="timeline-item">
+                        <span class="timeline-date">Sep 2025 - Mar 2026</span>
+                        <h4 class="timeline-title">Industrial Packer</h4>
+                        <p class="timeline-subtitle">Poly Products Nigeria Limited (Ogun, NG)</p>
+                        <p style="color: var(--text-secondary); font-size: 1.5rem;">Managed industrial injection molding operations (Tederic systems), executing QA/QC inspections and cycle-time monitoring.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="timeline-date">Nov 2026 - Present</span>
+                        <h4 class="timeline-title">Music Director</h4>
+                        <p class="timeline-subtitle">CCCSPUI</p>
+                        <p style="color: var(--text-secondary); font-size: 1.5rem;">Orchestrating musical performances and leading vocal/instrumental arrangements while fostering team autonomy and welfare.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ── SCHOLARSHIPS & CERTIFICATES ── -->
+    <section class="sec-pad" style="background: var(--bg-surface);">
+        <div class="container">
+            <h2 class="heading-sec__main reveal">Awards & Certifications</h2>
+            <p class="heading-sec__sub reveal">Recognitions and technical qualifications.</p>
+            
+            <div class="grid-2">
+                <!-- Scholarships -->
+                <div class="card reveal">
+                    <h3 style="font-size: 2.2rem; margin-bottom: 2rem; color: var(--accent-cyan); font-family: var(--font-heading);">Scholarships & Awards</h3>
+                    <ul class="award-list">
+                        <li class="award-item">
+                            <div class="award-icon">🏆</div>
+                            <div class="award-details">
+                                <h4>Impact-X Drive Scholarship</h4>
+                                <p>Awarded to study Data Science (Nov 2026).</p>
+                            </div>
+                        </li>
+                        <li class="award-item">
+                            <div class="award-icon">🏆</div>
+                            <div class="award-details">
+                                <h4>Sundry Market Limited Scholarship</h4>
+                                <p>Awarded by Sundry Market Limited (Sep 2026).</p>
+                            </div>
+                        </li>
+                        <li class="award-item">
+                            <div class="award-icon">🛡️</div>
+                            <div class="award-details">
+                                <h4>I4G Cybersecurity Scholarship</h4>
+                                <p>Awarded by Ingressive4Good for Cybersecurity Analysis (Jan 2024).</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Certifications -->
+                <div class="card reveal">
+                    <h3 style="font-size: 2.2rem; margin-bottom: 2rem; color: var(--accent-amber); font-family: var(--font-heading);">Licenses & Certifications</h3>
+                    <ul class="award-list">
+                        <li class="award-item">
+                            <div class="award-icon">⚙️</div>
+                            <div class="award-details">
+                                <h4>Onshape by PTC</h4>
+                                <p>Intro to Parametric Feature-Based CAD & Intro to Sketching (Aug 2026).</p>
+                            </div>
+                        </li>
+                        <li class="award-item">
+                            <div class="award-icon">🔋</div>
+                            <div class="award-details">
+                                <h4>Battery Pack Design and Manufacturing</h4>
+                                <p>Decibels Lab (Aug 2026).</p>
+                            </div>
+                        </li>
+                        <li class="award-item">
+                            <div class="award-icon">💻</div>
+                            <div class="award-details">
+                                <h4>Cisco Networking Academy</h4>
+                                <p>Introduction to Cybersecurity (Jul 2024) & Network Essentials (Apr 2023).</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── VOLUNTEER & EVENTS ── -->
+    <section id="events" class="sec-pad">
+        <div class="container">
+            <h2 class="heading-sec__main reveal">Volunteer & Events</h2>
+            <p class="heading-sec__sub reveal">Organizing technical operations and executing campus-wide programs.</p>
+            
+            <div class="grid-3">
+                <div class="card reveal">
+                    <span style="color: var(--accent-amber); font-size: 1.3rem; font-weight: 700; text-transform: uppercase;">Sep 2026</span>
+                    <h3 style="font-size: 2rem; margin: 1rem 0;">Organising & Technical Team</h3>
+                    <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 1rem;">The Impact-X Global Nexus</p>
+                    <p style="font-size: 1.5rem; color: var(--text-secondary);">Coordinated seating arrangements, speaker logistics, and managed sound system operations for the Campus Drive UI event, ensuring seamless delivery.</p>
+                </div>
+
+                <div class="card reveal">
+                    <span style="color: var(--accent-amber); font-size: 1.3rem; font-weight: 700; text-transform: uppercase;">Jul 2026 - Aug 2026</span>
+                    <h3 style="font-size: 2rem; margin: 1rem 0;">Organising Committee Member</h3>
+                    <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 1rem;">CCCSPUI Singles' Week</p>
+                    <p style="font-size: 1.5rem; color: var(--text-secondary);">Executed comprehensive operational plans and managed logistics for a major student event. Directed media and publicity efforts to maximize visibility and documentation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ── PROJECTS (GITHUB) ── -->
-    <section id="projects" class="sec-pad">
+    <section id="projects" class="sec-pad" style="background: var(--bg-surface);">
         <div class="container">
             <h2 class="heading-sec__main reveal">Technical Projects</h2>
             <p class="heading-sec__sub reveal">Recent repositories fetched directly from my GitHub.</p>
             
-            <div id="github-projects" class="projects-grid reveal">
+            <div id="github-projects" class="grid-2 reveal">
                 <!-- Repos injected here via JS -->
             </div>
         </div>
@@ -662,13 +728,16 @@
                 <p>Whether you want to discuss robotics, energy engineering, cybersecurity, or collaboration opportunities, my inbox is always open.</p>
                 <div class="contact-links">
                     <a href="mailto:abrahamadeboye00@gmail.com" class="contact-link">
-                        📧 abrahamadeboye00@gmail.com
+                        📧 Email Me
                     </a>
                     <a href="https://github.com/a-adeboye" target="_blank" class="contact-link">
-                        💻 GitHub Profile
+                        💻 GitHub
                     </a>
                     <a href="https://www.linkedin.com/in/adedolapo-adeboye-smnse-59a2bb305" target="_blank" class="contact-link">
-                        💼 LinkedIn Network
+                        💼 LinkedIn
+                    </a>
+                    <a href="https://x.com/@damiano_esher" target="_blank" class="contact-link">
+                        🐦 Twitter/X
                     </a>
                 </div>
             </div>
@@ -678,12 +747,25 @@
     <!-- ── FOOTER ── -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Adedolapo Adeboye. Designed for the future of Mechanical Engineering.</p>
+            <p>&copy; 2026 Adedolapo Adeboye, SMNSE. Designed for the future of Mechanical Engineering.</p>
         </div>
     </footer>
 
     <!-- ── SCRIPTS ── -->
     <script>
+        // Theme Toggle
+        const themeBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        themeBtn.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            if(body.classList.contains('light-mode')) {
+                themeBtn.textContent = '🌙';
+            } else {
+                themeBtn.textContent = '☀️';
+            }
+        });
+
         // Mobile Menu Toggle
         const btn = document.querySelector('.mobile-menu-btn');
         const menu = document.querySelector('.mobile-menu');
@@ -720,7 +802,7 @@
             });
         });
 
-        // Intersection Observer for Scroll Animations (Fade In Up)
+        // Intersection Observer for Scroll Animations
         const revealElements = document.querySelectorAll('.reveal');
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -744,24 +826,23 @@
 
                 if (!Array.isArray(repos)) return;
 
-                container.innerHTML = ''; // Clear loading state
+                container.innerHTML = ''; 
                 repos
                     .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
-                    .slice(0, 4) // Show top 4
+                    .slice(0, 4) 
                     .forEach(repo => {
                         const card = document.createElement('div');
-                        card.className = 'repo-card';
+                        card.className = 'card';
+                        card.style.borderLeft = '4px solid var(--accent-cyan)';
                         card.innerHTML = `
-                            <div>
-                                <h3>${repo.name}</h3>
-                                <p>${repo.description || 'Open-source engineering script or project.'}</p>
-                            </div>
-                            <a href="${repo.html_url}" target="_blank" class="btn btn--outline">View Code</a>
+                            <h3 style="font-size: 2.2rem; margin-bottom: 1rem; font-family: var(--font-heading); color: var(--text-primary);">${repo.name}</h3>
+                            <p style="font-size: 1.5rem; color: var(--text-secondary); margin-bottom: 2rem;">${repo.description || 'Open-source engineering script or project.'}</p>
+                            <a href="${repo.html_url}" target="_blank" class="btn btn--outline" style="padding: 1rem 2rem; font-size: 1.4rem;">View Code</a>
                         `;
                         container.appendChild(card);
                     });
             } catch (err) {
-                container.innerHTML = `<p style="text-align:center; color:var(--text-secondary);">Unable to load repositories at this time.</p>`;
+                container.innerHTML = `<p style="text-align:center; color:var(--text-secondary); grid-column: 1/-1;">Unable to load repositories at this time.</p>`;
             }
         }
         loadRepos();
