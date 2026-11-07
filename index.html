@@ -3,45 +3,78 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Adedolapo Abraham Adeboye, SMNSE | Spatial Portfolio</title>
+    <title>Adedolapo Abraham Adeboye, SMNSE</title>
     <meta name="description" content="Portfolio of Adedolapo A. Adeboye, SMNSE, Mechanical Engineering undergraduate at the University of Ibadan." />
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+    
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Theme Logic (Executed immediately to prevent FOUC) -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            let themeToApply = 'dark'; // Default starting point
+
+            if (savedTheme) {
+                themeToApply = savedTheme;
+            } else {
+                // Priority: System Preferences
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+                
+                if (prefersDark) {
+                    themeToApply = 'dark';
+                } else if (prefersLight) {
+                    themeToApply = 'light';
+                } else {
+                    // Fallback for Auto / Unknown: 07:00 PM to 06:00 AM Dark Mode Rule
+                    const hour = new Date().getHours();
+                    themeToApply = (hour >= 19 || hour < 6) ? 'dark' : 'light';
+                }
+            }
+
+            if (themeToApply === 'light') {
+                document.documentElement.classList.add('light-mode');
+            }
+        })();
+    </script>
 
     <style>
         /* ── Core Variables (Professional VisionOS Pro Style) ── */
         :root {
-            /* Deep, sophisticated dark mode (Titanium/Midnight) */
             --bg-color-1: #000000;
             --bg-color-2: #0a0a0c;
             --bg-color-3: #111116;
             --bg-color-4: #050505;
 
-            /* Subtle, elegant ambient orbs */
-            --orb-1: #1e3a8a; /* Deep sapphire */
-            --orb-2: #0f766e; /* Deep teal */
+            --orb-1: #1e3a8a;
+            --orb-2: #0f766e;
             
-            /* Glassmorphism Variables */
-            --glass-bg: rgba(20, 20, 24, 0.55);
+            --glass-bg: rgba(20, 20, 24, 0.45);
             --glass-border: rgba(255, 255, 255, 0.08);
             --glass-highlight: rgba(255, 255, 255, 0.03);
             --glass-shadow: 0 24px 48px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
             
-            /* Typography */
+            --dock-bg: rgba(25, 25, 30, 0.3);
+            --dock-border-top: rgba(255, 255, 255, 0.2);
+            --dock-border: rgba(255, 255, 255, 0.08);
+
             --text-main: #f5f5f7;
             --text-muted: #86868b;
-            --accent-color: #2997ff; /* Apple system blue */
+            --accent-color: #2997ff;
             
             --font-heading: 'Cinzel', serif;
             --font-body: 'Raleway', sans-serif;
             --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        /* Light Mode Spatial Overrides (Frosted Silver/White) */
-        body.light-mode {
+        /* Light Mode Spatial Overrides */
+        html.light-mode {
             --bg-color-1: #f5f5f7;
             --bg-color-2: #ffffff;
             --bg-color-3: #e5e5ea;
@@ -50,11 +83,15 @@
             --orb-1: #bfdbfe;
             --orb-2: #ccfbf1;
             
-            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-bg: rgba(255, 255, 255, 0.55);
             --glass-border: rgba(0, 0, 0, 0.05);
             --glass-highlight: rgba(255, 255, 255, 1);
             --glass-shadow: 0 16px 32px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.6);
             
+            --dock-bg: rgba(255, 255, 255, 0.3);
+            --dock-border-top: rgba(255, 255, 255, 0.7);
+            --dock-border: rgba(0, 0, 0, 0.05);
+
             --text-main: #1d1d1f;
             --text-muted: #86868b;
             --accent-color: #0071e3;
@@ -62,11 +99,7 @@
 
         /* ── Reset & Base ── */
         * { margin: 0; padding: 0; box-sizing: inherit; }
-        html { 
-            font-size: 62.5%; 
-            scroll-behavior: smooth; 
-            -webkit-text-size-adjust: 100%;
-        }
+        html { font-size: 62.5%; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
         
         body {
             box-sizing: border-box;
@@ -76,12 +109,26 @@
             line-height: 1.6;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
-            padding-bottom: 12rem; /* Space for dock */
-            transition: var(--transition-smooth);
+            padding-bottom: 12rem;
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
 
         a { text-decoration: none; color: inherit; }
         li { list-style: none; }
+
+        /* ── Preloader Animation ── */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background-color: var(--bg-color-4);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeOut 0.4s ease-out 1.8s forwards;
+            pointer-events: none;
+        }
+        @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
 
         /* ── Liquid Animated Background ── */
         .ambient-bg {
@@ -93,7 +140,6 @@
             animation: liquidFlow 25s ease infinite;
         }
 
-        /* Liquid Orbs */
         .orb {
             position: fixed;
             border-radius: 50%;
@@ -106,15 +152,8 @@
         .orb-1 { width: 50vw; height: 50vw; background: var(--orb-1); top: -10%; left: -10%; }
         .orb-2 { width: 60vw; height: 60vw; background: var(--orb-2); bottom: -20%; right: -10%; animation-delay: -5s; }
 
-        @keyframes liquidFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        @keyframes floatOrb {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(5vw, 5vh) scale(1.1); }
-        }
+        @keyframes liquidFlow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes floatOrb { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(5vw, 5vh) scale(1.1); } }
 
         /* ── Typography ── */
         h1, h2, h3, h4 { font-family: var(--font-heading); }
@@ -128,15 +167,10 @@
         .hero-subtitle { font-size: clamp(1.4rem, 2.5vw, 1.8rem); color: var(--text-muted); max-width: 70rem; }
         
         .section-title { font-size: clamp(2rem, 3vw, 2.4rem); margin-bottom: 2.5rem; display: flex; align-items: center; gap: 1rem;}
-        .section-title::before { content: ''; display: block; width: 8px; height: 8px; background: var(--accent-color); border-radius: 50%; }
+        .section-title i { color: var(--accent-color); font-size: 2rem; }
 
         /* ── Layout Container ── */
-        .container {
-            width: 100%;
-            max-width: 130rem;
-            margin: 0 auto;
-            padding: 6rem 2.5rem;
-        }
+        .container { width: 100%; max-width: 130rem; margin: 0 auto; padding: 6rem 2.5rem; }
 
         /* ── VisionOS Glass Panel (The Bento Box) ── */
         .glass-panel {
@@ -154,30 +188,16 @@
             flex-direction: column;
         }
         
-        /* Subtle hover light effect */
         .glass-panel::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle at 50% 0%, var(--glass-highlight) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            pointer-events: none;
+            opacity: 0; transition: opacity 0.5s ease; pointer-events: none;
         }
-        .glass-panel:hover {
-            transform: translateY(-2px);
-            border-color: rgba(255, 255, 255, 0.15);
-        }
-        body.light-mode .glass-panel:hover { border-color: rgba(0, 0, 0, 0.15); }
+        .glass-panel:hover { transform: translateY(-2px); border-color: rgba(255, 255, 255, 0.15); }
+        html.light-mode .glass-panel:hover { border-color: rgba(0, 0, 0, 0.15); }
         .glass-panel:hover::after { opacity: 1; }
 
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 2.5rem;
-            margin-top: 2.5rem;
-        }
-
+        .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 2.5rem; margin-top: 2.5rem; }
         .span-12 { grid-column: span 12; }
         .span-8 { grid-column: span 8; }
         .span-6 { grid-column: span 6; }
@@ -186,71 +206,60 @@
         /* ── Specific Component Styling ── */
         .pill-list { display: flex; flex-wrap: wrap; gap: 1rem; }
         .pill {
+            display: inline-flex; align-items: center; gap: 0.8rem;
             background: rgba(150, 150, 150, 0.08);
             border: 1px solid var(--glass-border);
             padding: 0.8rem 1.6rem;
             border-radius: 30px;
             font-size: 1.4rem;
+            font-weight: 500;
             color: var(--text-main);
             transition: var(--transition-smooth);
             backdrop-filter: blur(10px);
         }
         .pill:hover { background: var(--text-main); color: var(--bg-color-1); border-color: var(--text-main); }
+        .pill i { font-size: 1.6rem; }
 
-        .list-item {
-            margin-bottom: 2.5rem;
-            padding-bottom: 2.5rem;
-            border-bottom: 1px solid var(--glass-border);
-        }
+        .list-item { margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--glass-border); }
         .list-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
         .item-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;}
         .item-title { font-size: 1.8rem; font-weight: 700; }
         .item-meta { font-size: 1.4rem; color: var(--text-muted); font-weight: 600; font-family: var(--font-heading);}
         .item-desc { font-size: 1.5rem; color: var(--text-muted); }
-        
         .highlight { color: var(--text-main); font-weight: 500; }
 
-        /* ── Floating Dock (VisionOS Style Navigation) ── */
+        /* ── Transparent Glossy Dock ── */
         .dock-container {
-            position: fixed;
-            bottom: 3rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            width: max-content;
-            max-width: 95vw;
+            position: fixed; bottom: 3rem; left: 50%; transform: translateX(-50%);
+            z-index: 1000; width: max-content; max-width: 95vw;
         }
 
         .dock {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem 1.5rem;
-            background: var(--glass-bg);
-            backdrop-filter: blur(40px) saturate(150%);
-            -webkit-backdrop-filter: blur(40px) saturate(150%);
-            border: 1px solid var(--glass-border);
+            display: flex; align-items: center; gap: 0.8rem;
+            padding: 0.8rem 1.2rem;
+            background: var(--dock-bg);
+            backdrop-filter: blur(50px) saturate(200%);
+            -webkit-backdrop-filter: blur(50px) saturate(200%);
+            border: 1px solid var(--dock-border);
+            border-top: 1px solid var(--dock-border-top);
             border-radius: 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4), inset 0 1px 1px rgba(255,255,255,0.15);
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
-            scrollbar-width: none; /* Firefox */
+            scrollbar-width: none;
         }
-        .dock::-webkit-scrollbar { display: none; } /* Safari and Chrome */
+        .dock::-webkit-scrollbar { display: none; }
 
         .dock-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-muted);
-            font-family: var(--font-body);
-            font-size: 1.4rem;
-            font-weight: 600;
-            padding: 1rem 2rem;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: var(--transition-smooth);
+            display: flex; align-items: center; gap: 0.8rem;
+            background: transparent; border: none;
+            color: var(--text-muted); font-family: var(--font-body);
+            font-size: 1.4rem; font-weight: 600;
+            padding: 1rem 1.8rem; border-radius: 30px;
+            cursor: pointer; transition: var(--transition-smooth);
             white-space: nowrap;
         }
+        .dock-btn i { font-size: 1.6rem; }
         .dock-btn:hover, .dock-btn.active {
             background: rgba(150, 150, 150, 0.15);
             color: var(--text-main);
@@ -259,25 +268,18 @@
         .dock-divider { width: 1px; height: 24px; background: var(--glass-border); flex-shrink: 0;}
 
         .theme-toggle {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 4rem;
-            height: 4rem;
-            border-radius: 50%;
-            background: rgba(150, 150, 150, 0.1);
-            border: 1px solid var(--glass-border);
-            color: var(--text-main);
-            font-size: 1.8rem;
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            width: 4rem; height: 4rem; border-radius: 50%;
+            background: rgba(150, 150, 150, 0.1); border: 1px solid var(--glass-border);
+            color: var(--text-main); font-size: 1.6rem;
+            cursor: pointer; transition: var(--transition-smooth); flex-shrink: 0;
         }
-        .theme-toggle:hover { background: rgba(150, 150, 150, 0.2); }
+        .theme-toggle:hover { background: rgba(150, 150, 150, 0.2); transform: rotate(15deg); }
+        .theme-toggle i { pointer-events: none; }
 
         .nav-target { scroll-margin-top: 6rem; }
 
-        /* ── Responsive Adaptations ── */
+        /* ── Adaptive Mobile Fixes ── */
         @media (max-width: 1024px) {
             .span-8, .span-6, .span-4 { grid-column: span 12; }
             .glass-panel { padding: 3rem; }
@@ -287,14 +289,37 @@
             .container { padding: 4rem 1.5rem; }
             .glass-panel { padding: 2.5rem; border-radius: 24px; }
             .bento-grid { display: flex; flex-direction: column; gap: 1.5rem; }
-            .dock { padding: 0.8rem; gap: 0.5rem; border-radius: 24px; }
-            .dock-btn { padding: 0.8rem 1.2rem; font-size: 1.3rem; }
-            .theme-toggle { width: 3.5rem; height: 3.5rem; font-size: 1.5rem; }
+            
+            /* Responsive Dock: Hide Text, Keep Icons */
+            .dock-text { display: none; }
+            .dock-btn { padding: 1.2rem; border-radius: 50%; justify-content: center; width: 4.4rem; height: 4.4rem; }
+            .dock-btn i { font-size: 1.8rem; margin: 0; }
+            .theme-toggle { width: 4.4rem; height: 4.4rem; }
             .orb-1, .orb-2 { width: 100vw; height: 100vw; filter: blur(70px); }
         }
     </style>
 </head>
 <body>
+
+    <!-- Mechanical Gear Preloader -->
+    <div id="preloader">
+        <svg viewBox="0 0 100 100" width="80" height="80">
+            <defs>
+                <mask id="fill-mask">
+                    <rect width="100" height="100" fill="black" />
+                    <!-- Circular line that draws clockwise -->
+                    <circle cx="51" cy="51" r="25" stroke="white" stroke-width="50" fill="none" 
+                            stroke-dasharray="157.1" stroke-dashoffset="157.1" transform="rotate(-90 51 51)">
+                        <animate attributeName="stroke-dashoffset" from="157.1" to="0" dur="1.8s" fill="freeze" />
+                    </circle>
+                </mask>
+            </defs>
+            <!-- Background Ghost Gear -->
+            <path d="M91.3,55.4l-7.9-1.3c-0.6-2.5-1.5-4.8-2.6-7.1l4.9-6.4c1.1-1.4,0.9-3.4-0.4-4.6l-5.6-5.6c-1.3-1.3-3.2-1.5-4.6-0.4l-6.4,4.9  c-2.2-1.1-4.6-2.1-7.1-2.6l-1.3-7.9C59.9,21.9,57.7,20,55,20h-8c-2.7,0-4.9,1.9-5.3,4.5l-1.3,7.9c-2.5,0.6-4.8,1.5-7.1,2.6l-6.4-4.9  c-1.4-1.1-3.4-0.9-4.6,0.4l-5.6,5.6c-1.3,1.3-1.5,3.2-0.4,4.6l4.9,6.4c-1.1,2.2-2.1,4.6-2.6,7.1l-7.9,1.3C8.1,46,6,48.3,6,51v8  c0,2.7,1.9,4.9,4.5,5.3l7.9,1.3c0.6,2.5,1.5,4.8,2.6,7.1l-4.9,6.4c-1.1,1.4-0.9,3.4,0.4,4.6l5.6,5.6c1.3,1.3,3.2,1.5,4.6,0.4l6.4-4.9  c2.2,1.1,4.6,2.1,7.1,2.6l1.3,7.9c0.3,2.6,2.5,4.5,5.3,4.5h8c2.7,0,4.9-1.9,5.3-4.5l1.3-7.9c2.5-0.6,4.8-1.5,7.1-2.6l6.4,4.9  c1.4,1.1,3.4,0.9,4.6-0.4l5.6-5.6c1.3-1.3,1.5-3.2,0.4-4.6l-4.9-6.4c1.1-2.2,2.1-4.6,2.6-7.1l7.9-1.3c2.6-0.3,4.5-2.5,4.5-5.3v-8  C95.9,48.3,94,46,91.3,55.4z M51,68c-9.4,0-17-7.6-17-17s7.6-17,17-17s17,7.6,17,17S60.4,68,51,68z" fill="var(--glass-border)" />
+            <!-- Animated Filled Gear -->
+            <path d="M91.3,55.4l-7.9-1.3c-0.6-2.5-1.5-4.8-2.6-7.1l4.9-6.4c1.1-1.4,0.9-3.4-0.4-4.6l-5.6-5.6c-1.3-1.3-3.2-1.5-4.6-0.4l-6.4,4.9  c-2.2-1.1-4.6-2.1-7.1-2.6l-1.3-7.9C59.9,21.9,57.7,20,55,20h-8c-2.7,0-4.9,1.9-5.3,4.5l-1.3,7.9c-2.5,0.6-4.8,1.5-7.1,2.6l-6.4-4.9  c-1.4-1.1-3.4-0.9-4.6,0.4l-5.6,5.6c-1.3,1.3-1.5,3.2-0.4,4.6l4.9,6.4c-1.1,2.2-2.1,4.6-2.6,7.1l-7.9,1.3C8.1,46,6,48.3,6,51v8  c0,2.7,1.9,4.9,4.5,5.3l7.9,1.3c0.6,2.5,1.5,4.8,2.6,7.1l-4.9,6.4c-1.1,1.4-0.9,3.4,0.4,4.6l5.6,5.6c1.3,1.3,3.2,1.5,4.6,0.4l6.4-4.9  c2.2,1.1,4.6,2.1,7.1,2.6l1.3,7.9c0.3,2.6,2.5,4.5,5.3,4.5h8c2.7,0,4.9-1.9,5.3-4.5l1.3-7.9c2.5-0.6,4.8-1.5,7.1-2.6l6.4,4.9  c1.4,1.1,3.4,0.9,4.6-0.4l5.6-5.6c1.3-1.3,1.5-3.2,0.4-4.6l-4.9-6.4c1.1-2.2,2.1-4.6,2.6-7.1l7.9-1.3c2.6-0.3,4.5-2.5,4.5-5.3v-8  C95.9,48.3,94,46,91.3,55.4z M51,68c-9.4,0-17-7.6-17-17s7.6-17,17-17s17,7.6,17,17S60.4,68,51,68z" fill="var(--accent-color)" mask="url(#fill-mask)" />
+        </svg>
+    </div>
 
     <!-- Ambient Liquid Glass Background -->
     <div class="ambient-bg"></div>
@@ -302,7 +327,6 @@
     <div class="orb orb-2"></div>
 
     <main class="container">
-        
         <!-- ── HERO BENTO ── -->
         <div class="bento-grid nav-target" id="home">
             <div class="glass-panel span-12" style="text-align: center; padding: 6rem 2rem;">
@@ -311,9 +335,9 @@
                     Mechanical Engineering Undergraduate || Robotics & Energy Systems || Cybersecurity
                 </p>
                 <div style="margin-top: 3rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem;">
-                    <a href="mailto:abrahamadeboye00@gmail.com" class="pill">Email Me</a>
-                    <a href="https://github.com/a-adeboye" target="_blank" class="pill">GitHub</a>
-                    <a href="https://www.linkedin.com/in/adedolapo-adeboye-smnse-59a2bb305" target="_blank" class="pill">LinkedIn</a>
+                    <a href="mailto:abrahamadeboye00@gmail.com" class="pill"><i class="fa-solid fa-envelope"></i> Email Me</a>
+                    <a href="https://github.com/a-adeboye" target="_blank" class="pill"><i class="fa-brands fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/adedolapo-adeboye-smnse-59a2bb305" target="_blank" class="pill"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
                 </div>
             </div>
         </div>
@@ -322,7 +346,7 @@
         <div class="bento-grid nav-target" id="profile">
             <!-- Profile -->
             <div class="glass-panel span-8">
-                <h2 class="section-title">Mission Matrix</h2>
+                <h2 class="section-title"><i class="fa-solid fa-crosshairs"></i> Mission Matrix</h2>
                 <p class="item-desc" style="margin-bottom: 1.5rem;">
                     I am a Mechanical Engineering undergraduate at the <span class="highlight">University of Ibadan</span> specializing in robotics, energy systems, and embedded technology. Recognizing the vital intersection of mechanical engineering and system security, I actively pursue Cybersecurity and Ethical Hacking to build physical devices, sensor networks, and autonomous hardware that are resilient against both structural and digital vulnerabilities.
                 </p>
@@ -333,7 +357,7 @@
             
             <!-- Skills -->
             <div class="glass-panel span-4">
-                <h2 class="section-title">Core Architecture</h2>
+                <h2 class="section-title"><i class="fa-solid fa-microchip"></i> Core Architecture</h2>
                 <div class="pill-list">
                     <span class="pill">Python & C/C++</span>
                     <span class="pill">CAD (Onshape)</span>
@@ -351,7 +375,7 @@
         <div class="bento-grid nav-target" id="experience">
             <!-- Education -->
             <div class="glass-panel span-6">
-                <h2 class="section-title">Academic Foundation</h2>
+                <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Academic Foundation</h2>
                 
                 <div class="list-item">
                     <div class="item-header">
@@ -380,7 +404,7 @@
 
             <!-- Work Experience -->
             <div class="glass-panel span-6">
-                <h2 class="section-title">Operational Experience</h2>
+                <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Operational Experience</h2>
                 
                 <div class="list-item">
                     <div class="item-header">
@@ -412,7 +436,7 @@
         <div class="bento-grid nav-target" id="achievements">
             <!-- Certifications & Scholarships -->
             <div class="glass-panel span-6">
-                <h2 class="section-title">Awards & Certifications</h2>
+                <h2 class="section-title"><i class="fa-solid fa-award"></i> Awards & Certifications</h2>
                 <div class="list-item">
                     <h3 class="item-title">Scholarships</h3>
                     <p class="item-desc mt-2">
@@ -433,7 +457,7 @@
 
             <!-- Volunteering -->
             <div class="glass-panel span-6">
-                <h2 class="section-title">Leadership & Volunteering</h2>
+                <h2 class="section-title"><i class="fa-solid fa-handshake-angle"></i> Leadership & Volunteering</h2>
                 <div class="list-item">
                     <div class="item-header">
                         <h3 class="item-title">Organising & Technical Team</h3>
@@ -454,7 +478,7 @@
         <!-- ── GITHUB PROJECTS BENTO ── -->
         <div class="bento-grid nav-target" id="projects">
             <div class="glass-panel span-12">
-                <h2 class="section-title">Live Datastream (Projects)</h2>
+                <h2 class="section-title"><i class="fa-solid fa-code"></i> Live Datastream (Projects)</h2>
                 <div id="github-projects" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
                     <!-- Projects injected here -->
                 </div>
@@ -466,39 +490,55 @@
     <!-- ── FLOATING SPATIAL DOCK ── -->
     <div class="dock-container">
         <nav class="dock">
-            <a href="#home" class="dock-btn active">Home</a>
-            <a href="#profile" class="dock-btn">Profile</a>
-            <a href="#experience" class="dock-btn">Experience</a>
-            <a href="#achievements" class="dock-btn">Awards</a>
-            <a href="#projects" class="dock-btn">Projects</a>
+            <a href="#home" class="dock-btn active"><i class="fa-solid fa-house"></i> <span class="dock-text">Home</span></a>
+            <a href="#profile" class="dock-btn"><i class="fa-solid fa-user"></i> <span class="dock-text">Profile</span></a>
+            <a href="#experience" class="dock-btn"><i class="fa-solid fa-compass"></i> <span class="dock-text">Experience</span></a>
+            <a href="#achievements" class="dock-btn"><i class="fa-solid fa-star"></i> <span class="dock-text">Awards</span></a>
+            <a href="#projects" class="dock-btn"><i class="fa-solid fa-layer-group"></i> <span class="dock-text">Projects</span></a>
             <div class="dock-divider"></div>
-            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Environment">☀️</button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Environment">
+                <i class="fa-solid fa-moon dark-icon"></i>
+            </button>
         </nav>
     </div>
 
     <script>
-        // ── VisionOS Theme Toggle ──
+        // ── VisionOS Theme Toggle Initialization ──
         const themeBtn = document.getElementById('theme-toggle');
-        const body = document.body;
+        const themeIcon = themeBtn.querySelector('i');
+        const htmlElement = document.documentElement;
+
+        // Function to update icon based on state
+        const updateThemeIcon = () => {
+            if (htmlElement.classList.contains('light-mode')) {
+                themeIcon.className = 'fa-solid fa-sun light-icon';
+            } else {
+                themeIcon.className = 'fa-solid fa-moon dark-icon';
+            }
+        };
         
+        // Initial Icon Set
+        updateThemeIcon();
+
+        // User Toggle Action
         themeBtn.addEventListener('click', () => {
-            body.classList.toggle('light-mode');
-            themeBtn.textContent = body.classList.contains('light-mode') ? '🌙' : '☀️';
+            htmlElement.classList.toggle('light-mode');
+            const newTheme = htmlElement.classList.contains('light-mode') ? 'light' : 'dark';
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon();
         });
 
         // ── Smooth Scroll & Active Dock State ──
         const dockLinks = document.querySelectorAll('.dock-btn');
         const sections = document.querySelectorAll('.nav-target');
         
-        // Click behavior
         dockLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 dockLinks.forEach(btn => btn.classList.remove('active'));
-                e.target.classList.add('active');
+                e.currentTarget.classList.add('active');
             });
         });
 
-        // Scroll observer to update active dock link
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -506,7 +546,6 @@
                         link.classList.remove('active');
                         if (link.getAttribute('href').substring(1) === entry.target.id) {
                             link.classList.add('active');
-                            // Ensure active link stays visible in scrolled dock on mobile
                             link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
                         }
                     });
@@ -533,7 +572,6 @@
                     .slice(0, 4) 
                     .forEach(repo => {
                         const card = document.createElement('div');
-                        // Inner glass card for projects
                         card.style.background = 'var(--glass-highlight)';
                         card.style.padding = '2.5rem';
                         card.style.borderRadius = '24px';
@@ -541,16 +579,25 @@
                         card.style.transition = 'var(--transition-smooth)';
                         
                         card.innerHTML = `
-                            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; font-family: var(--font-heading); font-weight: 700;">${repo.name}</h3>
+                            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; font-family: var(--font-heading); font-weight: 700;">
+                                <i class="fa-solid fa-folder-open" style="color: var(--accent-color); margin-right: 0.5rem;"></i> ${repo.name}
+                            </h3>
                             <p style="font-size: 1.4rem; color: var(--text-muted); margin-bottom: 2rem; min-height: 4rem;">
                                 ${repo.description || 'System engineering module or script data.'}
                             </p>
-                            <a href="${repo.html_url}" target="_blank" class="pill" style="display: inline-block; text-align: center; width: 100%;">View Code</a>
+                            <a href="${repo.html_url}" target="_blank" class="pill" style="display: flex; justify-content: center; width: 100%;">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i> View Code
+                            </a>
                         `;
+                        
+                        // Add hover effect via JS since it's injected
+                        card.addEventListener('mouseenter', () => { card.style.borderColor = 'var(--accent-color)'; card.style.transform = 'translateY(-2px)'; });
+                        card.addEventListener('mouseleave', () => { card.style.borderColor = 'var(--glass-border)'; card.style.transform = 'translateY(0)'; });
+
                         container.appendChild(card);
                     });
             } catch (err) {
-                container.innerHTML = `<p style="color:var(--text-muted);">Repository datastream unavailable.</p>`;
+                container.innerHTML = `<p style="color:var(--text-muted);"><i class="fa-solid fa-triangle-exclamation"></i> Repository datastream unavailable.</p>`;
             }
         }
         loadRepos();
