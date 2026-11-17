@@ -16,9 +16,9 @@ As an aspiring engineer, I am currently focusing on building a solid foundation 
 ## 🛠️ Skills & Tools
 
 I am currently developing my technical toolkit. My active skills include:
-- **Design:** CAD, 2D Drafting, OnShape
+- **Design:** CAD, 2D Drafting, OnShape, SolidWorks
 - **Programming & Automation:** Python
-- **Environment & Cloud:** Termux, Microsoft Azure
+- **Environment & Cloud:** Fedora Linux, Microsoft Windows, Microsoft Azure
 
 ---
 
