@@ -2,28 +2,31 @@
 <html lang="en-GB">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Adedolapo Abraham Adeboye, SMNSE</title>
-    <meta name="description" content="Portfolio of Adedolapo A. Adeboye, SMNSE, Mechanical Engineering undergraduate at the University of Ibadan." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>Hon. Adedolapo Adeboye, SMNSE | Mechanical Engineering &amp; 3D CAD Portfolio</title>
+    <meta name="description" content="Portfolio of Hon. Adedolapo Adeboye, SMNSE — Mechanical Engineering undergraduate at the University of Ibadan, Honourable Member of Sultan Bello House of Assembly, and Assistant General Secretary of AMES &amp; NIMechE-UI." />
+    <meta name="keywords" content="Hon. Adedolapo Adeboye, Adedolapo Adeboye, SMNSE, Mechanical Engineering, University of Ibadan, SolidWorks, Onshape, Robotics, Energy Systems, Cybersecurity, NSE, NIPES, ASME, IMechE, SPE, AMES, NIMechE-UI" />
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
     
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,100..1000&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Three.js for Interactive 3D Mechanical Assemblies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <!-- Theme Logic (Executed immediately to prevent FOUC) -->
     <script>
         (function() {
             const savedTheme = localStorage.getItem('theme');
-            let themeToApply = 'dark'; // Default starting point
+            let themeToApply = 'dark';
 
             if (savedTheme) {
                 themeToApply = savedTheme;
             } else {
-                // Priority: System Preferences
                 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
                 const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
                 
@@ -32,7 +35,6 @@
                 } else if (prefersLight) {
                     themeToApply = 'light';
                 } else {
-                    // Fallback for Auto / Unknown: 07:00 PM to 06:00 AM Dark Mode Rule
                     const hour = new Date().getHours();
                     themeToApply = (hour >= 19 || hour < 6) ? 'dark' : 'light';
                 }
@@ -45,69 +47,72 @@
     </script>
 
     <style>
-        /* ── Core Variables (Professional VisionOS Pro Style) ── */
+        /* ── Core Variables (VisionOS Pro Liquid Glass Style) ── */
         :root {
-            --bg-color-1: #000000;
-            --bg-color-2: #0a0a0c;
-            --bg-color-3: #111116;
-            --bg-color-4: #050505;
+            --bg-color-1: #020305;
+            --bg-color-2: #0a0c10;
+            --bg-color-3: #11151c;
+            --bg-color-4: #050608;
 
             --orb-1: #1e3a8a;
             --orb-2: #0f766e;
             
-            --glass-bg: rgba(20, 20, 24, 0.45);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-highlight: rgba(255, 255, 255, 0.03);
-            --glass-shadow: 0 24px 48px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            --glass-bg: rgba(20, 22, 28, 0.52);
+            --glass-border: rgba(255, 255, 255, 0.09);
+            --glass-highlight: rgba(255, 255, 255, 0.04);
+            --glass-shadow: 0 24px 48px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.06);
             
-            --dock-bg: rgba(25, 25, 30, 0.3);
-            --dock-border-top: rgba(255, 255, 255, 0.2);
+            --dock-bg: rgba(25, 27, 34, 0.35);
+            --dock-border-top: rgba(255, 255, 255, 0.22);
             --dock-border: rgba(255, 255, 255, 0.08);
 
             --text-main: #f5f5f7;
-            --text-muted: #86868b;
+            --text-muted: #9499a6;
             --accent-color: #2997ff;
+            --accent-secondary: #38bdf8;
+            --cad-grid: rgba(255, 255, 255, 0.05);
             
-            --font-heading: 'Cinzel', serif;
-            --font-body: 'Raleway', sans-serif;
-            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --font-main: 'Google Sans Flex', sans-serif;
+            --transition-smooth: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         /* Light Mode Spatial Overrides */
         html.light-mode {
             --bg-color-1: #f5f5f7;
             --bg-color-2: #ffffff;
-            --bg-color-3: #e5e5ea;
-            --bg-color-4: #f0f0f5;
+            --bg-color-3: #e8eaef;
+            --bg-color-4: #f0f2f6;
 
             --orb-1: #bfdbfe;
             --orb-2: #ccfbf1;
             
-            --glass-bg: rgba(255, 255, 255, 0.55);
-            --glass-border: rgba(0, 0, 0, 0.05);
-            --glass-highlight: rgba(255, 255, 255, 1);
-            --glass-shadow: 0 16px 32px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            --glass-bg: rgba(255, 255, 255, 0.62);
+            --glass-border: rgba(0, 0, 0, 0.06);
+            --glass-highlight: rgba(255, 255, 255, 0.9);
+            --glass-shadow: 0 16px 32px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.7);
             
-            --dock-bg: rgba(255, 255, 255, 0.3);
-            --dock-border-top: rgba(255, 255, 255, 0.7);
-            --dock-border: rgba(0, 0, 0, 0.05);
+            --dock-bg: rgba(255, 255, 255, 0.38);
+            --dock-border-top: rgba(255, 255, 255, 0.85);
+            --dock-border: rgba(0, 0, 0, 0.06);
 
             --text-main: #1d1d1f;
-            --text-muted: #86868b;
+            --text-muted: #5c606a;
             --accent-color: #0071e3;
+            --accent-secondary: #0284c7;
+            --cad-grid: rgba(0, 0, 0, 0.05);
         }
 
         /* ── Reset & Base ── */
-        * { margin: 0; padding: 0; box-sizing: inherit; }
-        html { font-size: 62.5%; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 62.5%; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
         
         body {
-            box-sizing: border-box;
-            font-family: var(--font-body);
+            font-family: var(--font-main);
             color: var(--text-main);
             background-color: var(--bg-color-4);
-            line-height: 1.6;
+            line-height: 1.65;
             overflow-x: hidden;
+            width: 100%;
             -webkit-font-smoothing: antialiased;
             padding-bottom: 12rem;
             transition: background-color 0.4s ease, color 0.4s ease;
@@ -116,25 +121,34 @@
         a { text-decoration: none; color: inherit; }
         li { list-style: none; }
 
-        /* ── Preloader Animation ── */
+        /* ── Preloader Animation (< 2s) ── */
         #preloader {
             position: fixed;
             inset: 0;
             background-color: var(--bg-color-4);
             z-index: 10000;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            animation: fadeOut 0.4s ease-out 1.8s forwards;
+            gap: 1.5rem;
+            animation: fadeOut 0.35s ease-out 1.55s forwards;
             pointer-events: none;
+        }
+        .loader-label {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--text-muted);
         }
         @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
 
         /* ── Liquid Animated Background ── */
         .ambient-bg {
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            z-index: -1;
+            inset: 0;
+            z-index: -2;
             background: linear-gradient(135deg, var(--bg-color-1), var(--bg-color-2), var(--bg-color-3), var(--bg-color-1));
             background-size: 400% 400%;
             animation: liquidFlow 25s ease infinite;
@@ -145,7 +159,7 @@
             border-radius: 50%;
             filter: blur(100px);
             z-index: -1;
-            opacity: 0.4;
+            opacity: 0.38;
             animation: floatOrb 20s ease-in-out infinite alternate;
             pointer-events: none;
         }
@@ -156,94 +170,346 @@
         @keyframes floatOrb { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(5vw, 5vh) scale(1.1); } }
 
         /* ── Typography ── */
-        h1, h2, h3, h4 { font-family: var(--font-heading); }
+        h1, h2, h3, h4 { font-family: var(--font-main); letter-spacing: -0.02em; }
         .text-gradient {
-            background: linear-gradient(135deg, var(--text-main) 30%, var(--text-muted) 100%);
+            background: linear-gradient(135deg, var(--text-main) 35%, var(--text-muted) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         
-        .hero-title { font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 800; margin-bottom: 1rem; line-height: 1.2;}
-        .hero-subtitle { font-size: clamp(1.4rem, 2.5vw, 1.8rem); color: var(--text-muted); max-width: 70rem; }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.6rem 1.4rem;
+            border-radius: 30px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            background: rgba(41, 151, 255, 0.12);
+            border: 1px solid rgba(41, 151, 255, 0.3);
+            color: var(--accent-color);
+            margin-bottom: 1.6rem;
+            max-width: 100%;
+        }
+
+        .hero-title { font-size: clamp(2.8rem, 4.6vw, 4.4rem); font-weight: 800; margin-bottom: 1.2rem; line-height: 1.15; overflow-wrap: break-word; }
+        .hero-subtitle { font-size: clamp(1.45rem, 2vw, 1.75rem); color: var(--text-muted); font-weight: 500; max-width: 65rem; }
         
-        .section-title { font-size: clamp(2rem, 3vw, 2.4rem); margin-bottom: 2.5rem; display: flex; align-items: center; gap: 1rem;}
-        .section-title i { color: var(--accent-color); font-size: 2rem; }
+        .section-title { font-size: clamp(1.9rem, 2.6vw, 2.3rem); font-weight: 800; margin-bottom: 2.2rem; display: flex; align-items: center; gap: 1rem; }
+        .section-title i { color: var(--accent-color); font-size: 1.9rem; flex-shrink: 0; }
 
         /* ── Layout Container ── */
-        .container { width: 100%; max-width: 130rem; margin: 0 auto; padding: 6rem 2.5rem; }
+        .container { width: 100%; max-width: 132rem; margin: 0 auto; padding: 4.5rem 2.5rem; }
 
-        /* ── VisionOS Glass Panel (The Bento Box) ── */
+        /* ── VisionOS Glass Panel (Bento Box) ── */
         .glass-panel {
             background: var(--glass-bg);
             backdrop-filter: blur(32px);
             -webkit-backdrop-filter: blur(32px);
             border: 1px solid var(--glass-border);
-            border-radius: 32px;
-            padding: 4rem;
+            border-radius: 30px;
+            padding: 3.5rem;
             box-shadow: var(--glass-shadow);
             position: relative;
             overflow: hidden;
             transition: var(--transition-smooth);
             display: flex;
             flex-direction: column;
+            min-width: 0;
         }
         
         .glass-panel::after {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            content: ''; position: absolute; inset: 0;
             background: radial-gradient(circle at 50% 0%, var(--glass-highlight) 0%, transparent 70%);
-            opacity: 0; transition: opacity 0.5s ease; pointer-events: none;
+            opacity: 0; transition: opacity 0.45s ease; pointer-events: none;
         }
-        .glass-panel:hover { transform: translateY(-2px); border-color: rgba(255, 255, 255, 0.15); }
-        html.light-mode .glass-panel:hover { border-color: rgba(0, 0, 0, 0.15); }
+        .glass-panel:hover { transform: translateY(-2px); border-color: rgba(255, 255, 255, 0.16); }
+        html.light-mode .glass-panel:hover { border-color: rgba(0, 0, 0, 0.14); }
         .glass-panel:hover::after { opacity: 1; }
 
-        .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 2.5rem; margin-top: 2.5rem; }
+        .bento-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 2.4rem; margin-top: 2.4rem; }
         .span-12 { grid-column: span 12; }
         .span-8 { grid-column: span 8; }
+        .span-7 { grid-column: span 7; }
         .span-6 { grid-column: span 6; }
+        .span-5 { grid-column: span 5; }
         .span-4 { grid-column: span 4; }
 
+        /* ── Hero Split with Live 3D Rack & Pinion Assembly ── */
+        .hero-split {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+            gap: 3rem;
+            align-items: center;
+        }
+
+        /* ── Interactive 3D CAD Viewport Styling ── */
+        .cad-viewport-wrapper {
+            position: relative;
+            width: 100%;
+            min-width: 0;
+            height: 36rem;
+            border-radius: 22px;
+            background-color: var(--glass-highlight);
+            background-image: 
+                linear-gradient(to right, var(--cad-grid) 1px, transparent 1px),
+                linear-gradient(to bottom, var(--cad-grid) 1px, transparent 1px);
+            background-size: 24px 24px;
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+            cursor: grab;
+            touch-action: pan-y;
+        }
+        .cad-viewport-wrapper:active { cursor: grabbing; }
+        .cad-viewport-wrapper.tall { height: 42rem; }
+
+        .cad-hud-top {
+            position: absolute;
+            top: 1.4rem;
+            left: 1.6rem;
+            right: 1.6rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            pointer-events: none;
+            z-index: 5;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cad-tag {
+            background: rgba(15, 18, 24, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: #f5f5f7;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            padding: 0.45rem 1.1rem;
+            border-radius: 20px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .cad-tag .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 8px #22c55e;
+        }
+
+        .cad-controls {
+            position: absolute;
+            bottom: 1.4rem;
+            left: 1.4rem;
+            right: 1.4rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            z-index: 5;
+        }
+
+        .cad-btn {
+            background: rgba(15, 18, 24, 0.72);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            color: #f5f5f7;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            padding: 0.65rem 1.3rem;
+            border-radius: 20px;
+            font-family: var(--font-main);
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .cad-btn:hover, .cad-btn.active {
+            background: var(--accent-color);
+            color: #ffffff;
+            border-color: var(--accent-color);
+        }
+
+        /* ── Interactive Flipbook "+" Callout Pins ── */
+        .callout-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+        .callout-card {
+            background: var(--glass-highlight);
+            border: 1px solid var(--glass-border);
+            border-radius: 18px;
+            padding: 1.4rem 1.6rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            min-width: 0;
+        }
+        .callout-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        .plus-badge {
+            width: 2.8rem;
+            height: 2.8rem;
+            border-radius: 8px;
+            background: var(--text-main);
+            color: var(--bg-color-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 800;
+            flex-shrink: 0;
+            transition: var(--transition-smooth);
+        }
+        .callout-card:hover .plus-badge {
+            background: var(--accent-color);
+            color: #ffffff;
+            transform: rotate(90deg);
+        }
+        .callout-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.25rem;
+        }
+        .callout-sub {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
         /* ── Specific Component Styling ── */
-        .pill-list { display: flex; flex-wrap: wrap; gap: 1rem; }
+        .pill-list { display: flex; flex-wrap: wrap; gap: 0.9rem; }
         .pill {
             display: inline-flex; align-items: center; gap: 0.8rem;
             background: rgba(150, 150, 150, 0.08);
             border: 1px solid var(--glass-border);
-            padding: 0.8rem 1.6rem;
+            padding: 0.85rem 1.6rem;
             border-radius: 30px;
-            font-size: 1.4rem;
-            font-weight: 500;
+            font-size: 1.38rem;
+            font-weight: 600;
             color: var(--text-main);
             transition: var(--transition-smooth);
             backdrop-filter: blur(10px);
+            max-width: 100%;
         }
         .pill:hover { background: var(--text-main); color: var(--bg-color-1); border-color: var(--text-main); }
-        .pill i { font-size: 1.6rem; }
+        .pill i { font-size: 1.5rem; flex-shrink: 0; }
 
-        .list-item { margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--glass-border); }
+        .skill-group-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent-color);
+            margin: 1.6rem 0 0.8rem;
+        }
+        .skill-group-title:first-of-type { margin-top: 0; }
+
+        .list-item { margin-bottom: 2.2rem; padding-bottom: 2.2rem; border-bottom: 1px solid var(--glass-border); }
         .list-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
         .item-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.5rem;}
-        .item-title { font-size: 1.8rem; font-weight: 700; }
-        .item-meta { font-size: 1.4rem; color: var(--text-muted); font-weight: 600; font-family: var(--font-heading);}
-        .item-desc { font-size: 1.5rem; color: var(--text-muted); }
-        .highlight { color: var(--text-main); font-weight: 500; }
+        .item-title { font-size: 1.75rem; font-weight: 700; overflow-wrap: break-word; }
+        .item-meta { font-size: 1.3rem; color: var(--accent-color); font-weight: 700; }
+        .item-desc { font-size: 1.48rem; color: var(--text-muted); overflow-wrap: break-word; }
+        .highlight { color: var(--text-main); font-weight: 600; }
+
+        /* ── Dynamic GitHub Projects Grid & Overflow Protection ── */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 31rem), 1fr));
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .repo-card {
+            background: var(--glass-highlight);
+            padding: 2.4rem;
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-width: 0;
+            overflow: hidden;
+        }
+        .repo-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .repo-title {
+            font-size: 1.65rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            min-width: 0;
+            line-height: 1.35;
+        }
+        .repo-title i {
+            color: var(--accent-color);
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+        .repo-title-text {
+            min-width: 0;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        .repo-desc {
+            font-size: 1.4rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            overflow-wrap: break-word;
+            word-break: break-word;
+        }
+
+        /* ── Animated 2D Engine Schematic Container ── */
+        .schematic-box {
+            width: 100%;
+            border-radius: 22px;
+            background: var(--glass-highlight);
+            border: 1px solid var(--glass-border);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
         /* ── Transparent Glossy Dock ── */
         .dock-container {
-            position: fixed; bottom: 3rem; left: 50%; transform: translateX(-50%);
-            z-index: 1000; width: max-content; max-width: 95vw;
+            position: fixed; bottom: 2.4rem; left: 50%; transform: translateX(-50%);
+            z-index: 1000; width: max-content; max-width: 94vw;
         }
 
         .dock {
-            display: flex; align-items: center; gap: 0.8rem;
-            padding: 0.8rem 1.2rem;
+            display: flex; align-items: center; gap: 0.6rem;
+            padding: 0.75rem 1.1rem;
             background: var(--dock-bg);
             backdrop-filter: blur(50px) saturate(200%);
             -webkit-backdrop-filter: blur(50px) saturate(200%);
             border: 1px solid var(--dock-border);
             border-top: 1px solid var(--dock-border-top);
             border-radius: 40px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4), inset 0 1px 1px rgba(255,255,255,0.15);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4), inset 0 1px 1px rgba(255,255,255,0.16);
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
@@ -251,17 +517,17 @@
         .dock::-webkit-scrollbar { display: none; }
 
         .dock-btn {
-            display: flex; align-items: center; gap: 0.8rem;
+            display: flex; align-items: center; gap: 0.75rem;
             background: transparent; border: none;
-            color: var(--text-muted); font-family: var(--font-body);
-            font-size: 1.4rem; font-weight: 600;
-            padding: 1rem 1.8rem; border-radius: 30px;
+            color: var(--text-muted); font-family: var(--font-main);
+            font-size: 1.35rem; font-weight: 600;
+            padding: 0.95rem 1.6rem; border-radius: 30px;
             cursor: pointer; transition: var(--transition-smooth);
             white-space: nowrap;
         }
-        .dock-btn i { font-size: 1.6rem; }
+        .dock-btn i { font-size: 1.55rem; }
         .dock-btn:hover, .dock-btn.active {
-            background: rgba(150, 150, 150, 0.15);
+            background: rgba(150, 150, 150, 0.16);
             color: var(--text-main);
         }
 
@@ -270,55 +536,57 @@
         .theme-toggle {
             display: flex; align-items: center; justify-content: center;
             width: 4rem; height: 4rem; border-radius: 50%;
-            background: rgba(150, 150, 150, 0.1); border: 1px solid var(--glass-border);
-            color: var(--text-main); font-size: 1.6rem;
+            background: rgba(150, 150, 150, 0.12); border: 1px solid var(--glass-border);
+            color: var(--text-main); font-size: 1.55rem;
             cursor: pointer; transition: var(--transition-smooth); flex-shrink: 0;
         }
-        .theme-toggle:hover { background: rgba(150, 150, 150, 0.2); transform: rotate(15deg); }
+        .theme-toggle:hover { background: rgba(150, 150, 150, 0.22); transform: rotate(15deg); }
         .theme-toggle i { pointer-events: none; }
 
-        .nav-target { scroll-margin-top: 6rem; }
+        .nav-target { scroll-margin-top: 4rem; }
 
-        /* ── Adaptive Mobile Fixes ── */
-        @media (max-width: 1024px) {
-            .span-8, .span-6, .span-4 { grid-column: span 12; }
+        /* ── Adaptive Responsive Breakpoints ── */
+        @media (max-width: 1080px) {
+            .hero-split { grid-template-columns: minmax(0, 1fr); }
+            .span-8, .span-7, .span-6, .span-5, .span-4 { grid-column: span 12; }
             .glass-panel { padding: 3rem; }
         }
         
         @media (max-width: 768px) {
-            .container { padding: 4rem 1.5rem; }
-            .glass-panel { padding: 2.5rem; border-radius: 24px; }
-            .bento-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+            .container { padding: 3rem 1.4rem; }
+            .glass-panel { padding: 2.2rem; border-radius: 24px; }
+            .bento-grid { display: flex; flex-direction: column; gap: 1.6rem; margin-top: 1.6rem; }
+            .cad-viewport-wrapper { height: 28rem; }
+            .cad-viewport-wrapper.tall { height: 32rem; }
+            .callout-grid { grid-template-columns: minmax(0, 1fr); }
             
-            /* Responsive Dock: Hide Text, Keep Icons */
+            /* Responsive Dock: Keep Icons Crisp & Prevent Overflow */
             .dock-text { display: none; }
-            .dock-btn { padding: 1.2rem; border-radius: 50%; justify-content: center; width: 4.4rem; height: 4.4rem; }
-            .dock-btn i { font-size: 1.8rem; margin: 0; }
-            .theme-toggle { width: 4.4rem; height: 4.4rem; }
+            .dock-btn { padding: 1.1rem; border-radius: 50%; justify-content: center; width: 4.2rem; height: 4.2rem; }
+            .dock-btn i { font-size: 1.7rem; margin: 0; }
+            .theme-toggle { width: 4.2rem; height: 4.2rem; }
             .orb-1, .orb-2 { width: 100vw; height: 100vw; filter: blur(70px); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Mechanical Gear Preloader -->
+    <!-- Mechanical Gear Preloader (< 2s) -->
     <div id="preloader">
-        <svg viewBox="0 0 100 100" width="80" height="80">
+        <svg viewBox="0 0 100 100" width="76" height="76">
             <defs>
                 <mask id="fill-mask">
                     <rect width="100" height="100" fill="black" />
-                    <!-- Circular line that draws clockwise -->
                     <circle cx="51" cy="51" r="25" stroke="white" stroke-width="50" fill="none" 
                             stroke-dasharray="157.1" stroke-dashoffset="157.1" transform="rotate(-90 51 51)">
-                        <animate attributeName="stroke-dashoffset" from="157.1" to="0" dur="1.8s" fill="freeze" />
+                        <animate attributeName="stroke-dashoffset" from="157.1" to="0" dur="1.5s" fill="freeze" />
                     </circle>
                 </mask>
             </defs>
-            <!-- Background Ghost Gear -->
             <path d="M91.3,55.4l-7.9-1.3c-0.6-2.5-1.5-4.8-2.6-7.1l4.9-6.4c1.1-1.4,0.9-3.4-0.4-4.6l-5.6-5.6c-1.3-1.3-3.2-1.5-4.6-0.4l-6.4,4.9  c-2.2-1.1-4.6-2.1-7.1-2.6l-1.3-7.9C59.9,21.9,57.7,20,55,20h-8c-2.7,0-4.9,1.9-5.3,4.5l-1.3,7.9c-2.5,0.6-4.8,1.5-7.1,2.6l-6.4-4.9  c-1.4-1.1-3.4-0.9-4.6,0.4l-5.6,5.6c-1.3,1.3-1.5,3.2-0.4,4.6l4.9,6.4c-1.1,2.2-2.1,4.6-2.6,7.1l-7.9,1.3C8.1,46,6,48.3,6,51v8  c0,2.7,1.9,4.9,4.5,5.3l7.9,1.3c0.6,2.5,1.5,4.8,2.6,7.1l-4.9,6.4c-1.1,1.4-0.9,3.4,0.4,4.6l5.6,5.6c1.3,1.3,3.2,1.5,4.6,0.4l6.4-4.9  c2.2,1.1,4.6,2.1,7.1,2.6l1.3,7.9c0.3,2.6,2.5,4.5,5.3,4.5h8c2.7,0,4.9-1.9,5.3-4.5l1.3-7.9c2.5-0.6,4.8-1.5,7.1-2.6l6.4,4.9  c1.4,1.1,3.4,0.9,4.6-0.4l5.6-5.6c1.3-1.3,1.5-3.2,0.4-4.6l-4.9-6.4c1.1-2.2,2.1-4.6,2.6-7.1l7.9-1.3c2.6-0.3,4.5-2.5,4.5-5.3v-8  C95.9,48.3,94,46,91.3,55.4z M51,68c-9.4,0-17-7.6-17-17s7.6-17,17-17s17,7.6,17,17S60.4,68,51,68z" fill="var(--glass-border)" />
-            <!-- Animated Filled Gear -->
             <path d="M91.3,55.4l-7.9-1.3c-0.6-2.5-1.5-4.8-2.6-7.1l4.9-6.4c1.1-1.4,0.9-3.4-0.4-4.6l-5.6-5.6c-1.3-1.3-3.2-1.5-4.6-0.4l-6.4,4.9  c-2.2-1.1-4.6-2.1-7.1-2.6l-1.3-7.9C59.9,21.9,57.7,20,55,20h-8c-2.7,0-4.9,1.9-5.3,4.5l-1.3,7.9c-2.5,0.6-4.8,1.5-7.1,2.6l-6.4-4.9  c-1.4-1.1-3.4-0.9-4.6,0.4l-5.6,5.6c-1.3,1.3-1.5,3.2-0.4,4.6l4.9,6.4c-1.1,2.2-2.1,4.6-2.6,7.1l-7.9,1.3C8.1,46,6,48.3,6,51v8  c0,2.7,1.9,4.9,4.5,5.3l7.9,1.3c0.6,2.5,1.5,4.8,2.6,7.1l-4.9,6.4c-1.1,1.4-0.9,3.4,0.4,4.6l5.6,5.6c1.3,1.3,3.2,1.5,4.6,0.4l6.4-4.9  c2.2,1.1,4.6,2.1,7.1,2.6l1.3,7.9c0.3,2.6,2.5,4.5,5.3,4.5h8c2.7,0,4.9-1.9,5.3-4.5l1.3-7.9c2.5-0.6,4.8-1.5,7.1-2.6l6.4,4.9  c1.4,1.1,3.4,0.9,4.6-0.4l5.6-5.6c1.3-1.3,1.5-3.2,0.4-4.6l-4.9-6.4c1.1-2.2,2.1-4.6,2.6-7.1l7.9-1.3c2.6-0.3,4.5-2.5,4.5-5.3v-8  C95.9,48.3,94,46,91.3,55.4z M51,68c-9.4,0-17-7.6-17-17s7.6-17,17-17s17,7.6,17,17S60.4,68,51,68z" fill="var(--accent-color)" mask="url(#fill-mask)" />
         </svg>
+        <span class="loader-label">Initializing CAD Assembly</span>
     </div>
 
     <!-- Ambient Liquid Glass Background -->
@@ -327,17 +595,42 @@
     <div class="orb orb-2"></div>
 
     <main class="container">
-        <!-- ── HERO BENTO ── -->
-        <div class="bento-grid nav-target" id="home">
-            <div class="glass-panel span-12" style="text-align: center; padding: 6rem 2rem;">
-                <h1 class="hero-title text-gradient">Adedolapo A. Adeboye, SMNSE</h1>
-                <p class="hero-subtitle" style="margin: 0 auto;">
-                    Mechanical Engineering Undergraduate || Robotics & Energy Systems || Cybersecurity
-                </p>
-                <div style="margin-top: 3rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem;">
-                    <a href="mailto:abrahamadeboye00@gmail.com" class="pill"><i class="fa-solid fa-envelope"></i> Email Me</a>
-                    <a href="https://github.com/a-adeboye" target="_blank" class="pill"><i class="fa-brands fa-github"></i> GitHub</a>
-                    <a href="https://www.linkedin.com/in/adedolapo-adeboye-smnse-59a2bb305" target="_blank" class="pill"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        
+        <!-- ── HERO BENTO WITH INTERACTIVE 3D RACK & PINION ASSEMBLY ── -->
+        <div class="bento-grid nav-target" id="home" style="margin-top: 0;">
+            <div class="glass-panel span-12">
+                <div class="hero-split">
+                    <div style="min-width: 0;">
+                        <div class="hero-badge">
+                            <i class="fa-solid fa-landmark"></i> Hon. Member, Sultan Bello House of Assembly
+                        </div>
+                        <h1 class="hero-title text-gradient">Hon. Adedolapo Adeboye, SMNSE</h1>
+                        <p class="hero-subtitle">
+                            Mechanical Engineering Undergraduate &bull; Assistant General Secretary (AMES &amp; NIMechE-UI) &bull; Robotics, Energy Systems &amp; Cybersecurity
+                        </p>
+                        <p class="item-desc" style="margin-top: 1.5rem; max-width: 60rem;">
+                            Showcasing 3D parametric CAD assemblies in motion, kinematic mechanisms, industrial manufacturing precision, and cyber-resilient electromechanical systems.
+                        </p>
+                        <div style="margin-top: 2.8rem; display: flex; flex-wrap: wrap; gap: 1.2rem;">
+                            <a href="mailto:abrahamadeboye00@gmail.com" class="pill"><i class="fa-solid fa-envelope"></i> Email Me</a>
+                            <a href="https://github.com/a-adeboye" target="_blank" class="pill"><i class="fa-brands fa-github"></i> GitHub</a>
+                            <a href="https://www.linkedin.com/in/adedolapo-adeboye-smnse-59a2bb305" target="_blank" class="pill"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                            <a href="https://x.com/@damiano_esher" target="_blank" class="pill"><i class="fa-brands fa-x-twitter"></i> X (Twitter)</a>
+                        </div>
+                    </div>
+
+                    <!-- Interactive 3D Rack & Pinion Assembly -->
+                    <div class="cad-viewport-wrapper" id="gear-viewport" title="Drag to rotate 3D Rack & Pinion Assembly">
+                        <div class="cad-hud-top">
+                            <span class="cad-tag"><span class="dot"></span> 3D RACK &amp; PINION KINEMATICS</span>
+                            <span class="cad-tag"><i class="fa-solid fa-up-down-left-right"></i> Drag to Orbit</span>
+                        </div>
+                        <div class="cad-controls">
+                            <button class="cad-btn active" id="gear-play-btn"><i class="fa-solid fa-pause"></i> Motion</button>
+                            <button class="cad-btn" id="gear-explode-btn"><i class="fa-solid fa-up-right-and-down-left-from-center"></i> Explode</button>
+                            <button class="cad-btn" id="gear-wire-btn"><i class="fa-solid fa-border-all"></i> Wireframe</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -346,27 +639,147 @@
         <div class="bento-grid nav-target" id="profile">
             <!-- Profile -->
             <div class="glass-panel span-8">
-                <h2 class="section-title"><i class="fa-solid fa-crosshairs"></i> Mission Matrix</h2>
+                <h2 class="section-title"><i class="fa-solid fa-crosshairs"></i> Mission Matrix &amp; Governance</h2>
                 <p class="item-desc" style="margin-bottom: 1.5rem;">
-                    I am a Mechanical Engineering undergraduate at the <span class="highlight">University of Ibadan</span> specializing in robotics, energy systems, and embedded technology. Recognizing the vital intersection of mechanical engineering and system security, I actively pursue Cybersecurity and Ethical Hacking to build physical devices, sensor networks, and autonomous hardware that are resilient against both structural and digital vulnerabilities.
+                    I am <span class="highlight">Hon. Adedolapo Adeboye, SMNSE</span>, a Mechanical Engineering undergraduate at the <span class="highlight">University of Ibadan</span> specializing in robotics, energy systems, and embedded technology. Elected as an <span class="highlight">Honourable Member of the Sultan Bello House of Assembly</span> and serving as the substantive <span class="highlight">Assistant General Secretary</span> for both the <span class="highlight">Association of Mechanical Engineering Students (AMES)</span> and the <span class="highlight">Nigerian Institution of Mechanical Engineers, University of Ibadan Chapter (NIMechE-UI)</span>, I combine student legislative leadership with hands-on engineering execution.
+                </p>
+                <p class="item-desc" style="margin-bottom: 1.5rem;">
+                    Recognizing the critical intersection of mechanical hardware and digital security, I actively integrate Cybersecurity and Ethical Hacking into autonomous systems and sensor networks. My technical toolkit spans 3D CAD modeling (<span class="highlight">SolidWorks</span> &amp; <span class="highlight">Onshape</span>), CFD, FEA, C/C++, Python automation, PCB design, and control systems, advancing sustainable engineering aligned with UN SDGs 3, 7, 9, 11, and 12.
                 </p>
                 <p class="item-desc">
-                    My technical expertise spans CAD modeling, CFD, FEA, C/C++, Python automation, PCB design, control systems, and cybersecurity analysis. I am driven by a commitment to advancing sustainable engineering solutions aligned with UN SDGs 3, 7, 9, 11, and 12, and am an active student member of the <span class="highlight">Nigerian Institution of Professional Engineers and Scientists (NIPES)</span>, ASME, SPE, IMechE, and NSE.
+                    <span class="highlight">Professional Student Affiliations:</span> NSE (Nigerian Society of Engineers), NIPES (Nigerian Institution of Professional Engineers and Scientists), ASME (American Society of Mechanical Engineers), IMechE (Institution of Mechanical Engineers), and SPE (Society of Petroleum Engineers).
                 </p>
             </div>
             
             <!-- Skills -->
             <div class="glass-panel span-4">
                 <h2 class="section-title"><i class="fa-solid fa-microchip"></i> Core Architecture</h2>
+                
+                <div class="skill-group-title">CAD &amp; Simulation</div>
                 <div class="pill-list">
-                    <span class="pill">Python & C/C++</span>
-                    <span class="pill">CAD (Onshape)</span>
-                    <span class="pill">CFD & FEA</span>
+                    <span class="pill"><i class="fa-solid fa-cube"></i> SolidWorks (CSWA/CSWP Track)</span>
+                    <span class="pill"><i class="fa-solid fa-drafting-compass"></i> Onshape</span>
+                    <span class="pill">CFD &amp; FEA</span>
+                    <span class="pill">Parametric Assemblies</span>
+                </div>
+
+                <div class="skill-group-title">Programming &amp; Systems</div>
+                <div class="pill-list">
+                    <span class="pill">Python &amp; C/C++</span>
                     <span class="pill">PCB Design</span>
                     <span class="pill">Control Systems</span>
                     <span class="pill">Cybersecurity</span>
-                    <span class="pill">Web Automation</span>
-                    <span class="pill">Injection Molding</span>
+                </div>
+
+                <div class="skill-group-title">Manufacturing &amp; Leadership</div>
+                <div class="pill-list">
+                    <span class="pill">Injection Molding QA/QC</span>
+                    <span class="pill">Legislative Governance</span>
+                    <span class="pill">Project Management</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── INTERACTIVE 3D KINEMATICS & TECHNICAL SCHEMATICS ── -->
+        <div class="bento-grid nav-target" id="cad-lab">
+            <!-- Left: Interactive 3D Piston-Crankshaft Engine Assembly -->
+            <div class="glass-panel span-7">
+                <h2 class="section-title"><i class="fa-solid fa-gears"></i> 3D Kinematics Lab: Slider-Crank Assembly</h2>
+                <p class="item-desc" style="margin-bottom: 1.8rem;">
+                    Interactive 3D reciprocating piston, connecting rod, crankshaft, and flywheel assembly rendered in real time. Toggle <span class="highlight">Exploded View</span> to inspect component mates or <span class="highlight">Wireframe</span> for structural geometry.
+                </p>
+
+                <div class="cad-viewport-wrapper tall" id="piston-viewport" title="Drag to inspect 3D Piston-Crankshaft Assembly">
+                    <div class="cad-hud-top">
+                        <span class="cad-tag"><span class="dot"></span> <span id="rpm-readout">120 RPM &bull; ASSEMBLED</span></span>
+                        <span class="cad-tag"><i class="fa-solid fa-cube"></i> SolidWorks / Onshape Kinematics</span>
+                    </div>
+                    <div class="cad-controls">
+                        <button class="cad-btn active" id="piston-speed-btn"><i class="fa-solid fa-gauge-high"></i> Boost RPM</button>
+                        <button class="cad-btn" id="piston-explode-btn"><i class="fa-solid fa-up-right-and-down-left-from-center"></i> Explode Assembly</button>
+                        <button class="cad-btn" id="piston-wire-btn"><i class="fa-solid fa-border-all"></i> CAD Wireframe</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Technical Drawings, Schematics & Callout Pins -->
+            <div class="glass-panel span-5">
+                <h2 class="section-title"><i class="fa-solid fa-compass-drafting"></i> Technical Drawings &amp; Schematics</h2>
+                <p class="item-desc" style="margin-bottom: 1.8rem;">
+                    Translating engineering concepts into precise visual representations for manufacturing, assembly, and thermodynamic optimization.
+                </p>
+
+                <!-- Live Animated 4-Stroke Thermodynamic Cross-Section Schematic -->
+                <div class="schematic-box">
+                    <svg id="engine-schematic" viewBox="0 0 360 235" width="100%" style="max-height: 215px;">
+                        <rect x="115" y="38" width="130" height="125" rx="6" fill="none" stroke="var(--text-muted)" stroke-width="2" stroke-dasharray="4 3" />
+                        <line x1="130" y1="45" x2="130" y2="155" stroke="var(--text-main)" stroke-width="3" />
+                        <line x1="230" y1="45" x2="230" y2="155" stroke="var(--text-main)" stroke-width="3" />
+                        <path d="M95,45 L130,45 L145,25 L215,25 L230,45 L265,45" fill="none" stroke="var(--text-main)" stroke-width="3" />
+                        
+                        <g id="intake-valve">
+                            <line x1="158" y1="10" x2="158" y2="38" stroke="var(--accent-color)" stroke-width="3" />
+                            <line x1="147" y1="38" x2="169" y2="38" stroke="var(--accent-color)" stroke-width="3.5" />
+                        </g>
+                        <g id="exhaust-valve">
+                            <line x1="202" y1="10" x2="202" y2="38" stroke="#f59e0b" stroke-width="3" />
+                            <line x1="191" y1="38" x2="213" y2="38" stroke="#f59e0b" stroke-width="3.5" />
+                        </g>
+
+                        <rect x="176" y="8" width="8" height="20" rx="2" fill="var(--text-muted)" />
+                        <circle id="spark-flash" cx="180" cy="33" r="6" fill="#38bdf8" opacity="0" />
+                        <rect id="chamber-glow" x="132" y="45" width="96" height="40" fill="var(--accent-color)" opacity="0.15" />
+
+                        <circle cx="180" cy="175" r="44" fill="none" stroke="var(--glass-border)" stroke-width="2" />
+                        <circle cx="180" cy="175" r="5" fill="var(--text-main)" />
+
+                        <line id="schem-crank" x1="180" y1="175" x2="180" y2="155" stroke="var(--accent-color)" stroke-width="5" stroke-linecap="round" />
+                        <line id="schem-rod" x1="180" y1="155" x2="180" y2="95" stroke="var(--text-muted)" stroke-width="4" stroke-linecap="round" />
+                        <circle id="schem-crankpin" cx="180" cy="155" r="4.5" fill="#ffffff" />
+
+                        <g id="schem-piston" transform="translate(0, 0)">
+                            <rect x="133" y="75" width="94" height="32" rx="4" fill="var(--glass-bg)" stroke="var(--text-main)" stroke-width="2.5" />
+                            <line x1="133" y1="82" x2="227" y2="82" stroke="var(--accent-color)" stroke-width="1.5" />
+                            <line x1="133" y1="88" x2="227" y2="88" stroke="var(--accent-color)" stroke-width="1.5" />
+                            <circle cx="180" cy="95" r="4" fill="var(--accent-color)" />
+                        </g>
+
+                        <text id="stroke-label" x="180" y="230" text-anchor="middle" fill="var(--text-main)" font-family="Google Sans Flex, sans-serif" font-size="11" font-weight="700" letter-spacing="1.5">
+                            THERMODYNAMIC CYCLE: INTAKE STROKE
+                        </text>
+                    </svg>
+                </div>
+
+                <!-- '+' Callout Hotspots -->
+                <div class="callout-grid">
+                    <div class="callout-card">
+                        <div class="plus-badge"><i class="fa-solid fa-plus"></i></div>
+                        <div>
+                            <div class="callout-title">Assembly Schematics</div>
+                            <div class="callout-sub">Kinematic mates &amp; tolerance stack-ups</div>
+                        </div>
+                    </div>
+                    <div class="callout-card">
+                        <div class="plus-badge"><i class="fa-solid fa-plus"></i></div>
+                        <div>
+                            <div class="callout-title">3D CAD Visualization</div>
+                            <div class="callout-sub">SolidWorks &amp; Onshape parametric parts</div>
+                        </div>
+                    </div>
+                    <div class="callout-card">
+                        <div class="plus-badge"><i class="fa-solid fa-plus"></i></div>
+                        <div>
+                            <div class="callout-title">Component Design</div>
+                            <div class="callout-sub">DFM-ready gears, housings &amp; tooling</div>
+                        </div>
+                    </div>
+                    <div class="callout-card">
+                        <div class="plus-badge"><i class="fa-solid fa-plus"></i></div>
+                        <div>
+                            <div class="callout-title">System Optimization</div>
+                            <div class="callout-sub">CFD/FEA performance &amp; cycle efficiency</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -395,39 +808,60 @@
 
                 <div class="list-item">
                     <div class="item-header">
-                        <h3 class="item-title">St. Luke's Anglican Primary</h3>
+                        <h3 class="item-title">St. Luke's Anglican Primary School</h3>
                         <span class="item-meta">Sep 2008 - Jul 2011</span>
                     </div>
                     <p class="item-desc">First School Leaving Certificate (100%) | Head Prefect</p>
                 </div>
             </div>
 
-            <!-- Work Experience -->
+            <!-- Legislative Experience -->
             <div class="glass-panel span-6">
-                <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Operational Experience</h2>
+                <h2 class="section-title"><i class="fa-solid fa-landmark"></i> Legislative Experience</h2>
+
+                <div class="list-item">
+                    <div class="item-header">
+                        <h3 class="item-title">Honourable Member</h3>
+                        <span class="item-meta">Present &bull; University of Ibadan</span>
+                    </div>
+                    <p class="item-desc"><span class="highlight">Sultan Bello House of Assembly:</span> Enacting hall legislative policies and representing student interests as an Honourable Member.</p>
+                </div>
+            </div>
+
+            <!-- Executive Experience -->
+            <div class="glass-panel span-12">
+                <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Executive Experience</h2>
+
+                <div class="list-item">
+                    <div class="item-header">
+                        <h3 class="item-title">Assistant General Secretary</h3>
+                        <span class="item-meta">Present &bull; University of Ibadan</span>
+                    </div>
+                    <p class="item-desc"><span class="highlight">AMES &bull; NIMechE-UI:</span> Directing administrative operations, technical secretariat records, and student engineering initiatives as Assistant General Secretary.</p>
+                </div>
                 
                 <div class="list-item">
                     <div class="item-header">
                         <h3 class="item-title">Python Programming Intern</h3>
-                        <span class="item-meta">Aug 2026</span>
+                        <span class="item-meta">Aug 2026 &bull; Virtual</span>
                     </div>
-                    <p class="item-desc"><span class="highlight">CodeAlpha (Virtual):</span> Developed task automation scripts with regex file extraction, a console-based Hangman game, and a command-line stock investment portfolio tracker.</p>
+                    <p class="item-desc"><span class="highlight">CodeAlpha:</span> Developed task automation scripts with regular-expression extraction, a console-based Hangman game, and a command-line stock investment portfolio tracker.</p>
                 </div>
 
                 <div class="list-item">
                     <div class="item-header">
-                        <h3 class="item-title">Packer (Injection Molding)</h3>
-                        <span class="item-meta">Sep 2025 - Mar 2026</span>
+                        <h3 class="item-title">Packer (Industrial Injection Molding)</h3>
+                        <span class="item-meta">Sep 2025 - Mar 2026 &bull; Ogun, NG</span>
                     </div>
-                    <p class="item-desc"><span class="highlight">Poly Products Nigeria Limited:</span> Managed industrial injection molding operations (Tederic systems), executed QA/QC inspections, and monitored thermodynamic cycle times.</p>
+                    <p class="item-desc"><span class="highlight">Poly Products Nigeria Limited:</span> Managed industrial injection molding operations (Tederic systems), blended HDPE/LDPE/PE polymers, executed QA/QC defect inspections, and monitored thermodynamic cycle times.</p>
                 </div>
 
                 <div class="list-item">
                     <div class="item-header">
                         <h3 class="item-title">Music Director</h3>
-                        <span class="item-meta">Nov 2026 - Present</span>
+                        <span class="item-meta">Nov 2026 - Present &bull; Ibadan, NG</span>
                     </div>
-                    <p class="item-desc"><span class="highlight">CCCSPUI:</span> Leading the parish music unit through strategic coordination, vocal/instrumental arrangements, and team autonomy initiatives.</p>
+                    <p class="item-desc"><span class="highlight">CCCSPUI:</span> Leading the parish music unit through strategic delegation, vocal/instrumental arrangements, and holistic member welfare initiatives.</p>
                 </div>
             </div>
         </div>
@@ -436,51 +870,53 @@
         <div class="bento-grid nav-target" id="achievements">
             <!-- Certifications & Scholarships -->
             <div class="glass-panel span-6">
-                <h2 class="section-title"><i class="fa-solid fa-award"></i> Awards & Certifications</h2>
+                <h2 class="section-title"><i class="fa-solid fa-award"></i> Awards &amp; Certifications</h2>
                 <div class="list-item">
-                    <h3 class="item-title">Scholarships</h3>
-                    <p class="item-desc mt-2">
-                        • <span class="highlight">Impact-X Drive:</span> Data Science (Nov 2026)<br>
-                        • <span class="highlight">Sundry Market Limited:</span> Academic Scholarship (Sep 2026)<br>
-                        • <span class="highlight">Ingressive4Good (I4G):</span> Cybersecurity Analysis (Jan 2024)
+                    <h3 class="item-title">Scholarships &amp; Technical Tickets</h3>
+                    <p class="item-desc" style="margin-top: 0.8rem;">
+                        &bull; <span class="highlight">SolidWorks CSWA &amp; CSWP Exam Ticket Winner:</span> Awarded certification vouchers for Certified SolidWorks Associate &amp; Professional examinations<br>
+                        &bull; <span class="highlight">Impact-X Drive Scholarship:</span> Awarded to study Data Science (Nov 2026)<br>
+                        &bull; <span class="highlight">Sundry Market Limited Scholarship:</span> Academic Scholarship (Sep 2026)<br>
+                        &bull; <span class="highlight">Ingressive4Good (I4G):</span> Cybersecurity Analysis Scholarship (Jan 2024)
                     </p>
                 </div>
                 <div class="list-item">
-                    <h3 class="item-title">Licenses & Certificates</h3>
-                    <p class="item-desc mt-2">
-                        • <span class="highlight">Onshape by PTC:</span> Parametric Feature-Based CAD & Sketching (Aug 2026)<br>
-                        • <span class="highlight">Decibels Lab:</span> Battery Pack Design and Manufacturing (Aug 2026)<br>
-                        • <span class="highlight">Cisco Networking Academy:</span> Intro to Cybersecurity (Jul 2024) & Network Essentials (Apr 2023)
+                    <h3 class="item-title">Licenses, Memberships &amp; Certificates</h3>
+                    <p class="item-desc" style="margin-top: 0.8rem;">
+                        &bull; <span class="highlight">Student Memberships:</span> NSE, NIPES, ASME, IMechE, and SPE<br>
+                        &bull; <span class="highlight">Onshape by PTC:</span> Introduction to Parametric Feature-Based CAD &amp; Introduction to Sketching (Aug 2026)<br>
+                        &bull; <span class="highlight">Decibels Lab:</span> Battery Pack Design and Manufacturing (Aug 2026)<br>
+                        &bull; <span class="highlight">Cisco Networking Academy:</span> Introduction to Cybersecurity (Jul 2024) &amp; Network Essentials (Apr 2023)
                     </p>
                 </div>
             </div>
 
             <!-- Volunteering -->
             <div class="glass-panel span-6">
-                <h2 class="section-title"><i class="fa-solid fa-handshake-angle"></i> Leadership & Volunteering</h2>
+                <h2 class="section-title"><i class="fa-solid fa-handshake-angle"></i> Leadership &amp; Volunteering</h2>
                 <div class="list-item">
                     <div class="item-header">
-                        <h3 class="item-title">Organising & Technical Team</h3>
+                        <h3 class="item-title">Organising &amp; Technical Team</h3>
                         <span class="item-meta">Sep 2026</span>
                     </div>
-                    <p class="item-desc"><span class="highlight">The Impact-X Global Nexus:</span> Coordinated seating arrangements, speaker logistics, and managed sound system operations for the Campus Drive UI event.</p>
+                    <p class="item-desc"><span class="highlight">The Impact-X Global Nexus:</span> Coordinated seating arrangements, speaker logistics, and managed sound system operations for the Campus Drive UI event, ensuring seamless technical execution.</p>
                 </div>
                 <div class="list-item">
                     <div class="item-header">
-                        <h3 class="item-title">Organising Committee</h3>
+                        <h3 class="item-title">Organising Committee Member</h3>
                         <span class="item-meta">Jul 2026 - Aug 2026</span>
                     </div>
-                    <p class="item-desc"><span class="highlight">CCCSPUI Singles' Week:</span> Executed comprehensive operational plans, logistics, and directed media/publicity efforts for a major student event.</p>
+                    <p class="item-desc"><span class="highlight">CCCSPUI Singles' Week:</span> Executed comprehensive operational plans, managed program logistics, and directed media/publicity efforts to maximize event visibility and digital documentation.</p>
                 </div>
             </div>
         </div>
 
-        <!-- ── GITHUB PROJECTS BENTO ── -->
+        <!-- ── GITHUB PROJECTS BENTO (DYNAMIC FULL-ROW GRID) ── -->
         <div class="bento-grid nav-target" id="projects">
             <div class="glass-panel span-12">
                 <h2 class="section-title"><i class="fa-solid fa-code"></i> Live Datastream (Projects)</h2>
-                <div id="github-projects" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-                    <!-- Projects injected here -->
+                <div id="github-projects" class="projects-grid">
+                    <!-- Dynamically filled to match exact row multiples -->
                 </div>
             </div>
         </div>
@@ -492,6 +928,7 @@
         <nav class="dock">
             <a href="#home" class="dock-btn active"><i class="fa-solid fa-house"></i> <span class="dock-text">Home</span></a>
             <a href="#profile" class="dock-btn"><i class="fa-solid fa-user"></i> <span class="dock-text">Profile</span></a>
+            <a href="#cad-lab" class="dock-btn"><i class="fa-solid fa-cube"></i> <span class="dock-text">3D CAD</span></a>
             <a href="#experience" class="dock-btn"><i class="fa-solid fa-compass"></i> <span class="dock-text">Experience</span></a>
             <a href="#achievements" class="dock-btn"><i class="fa-solid fa-star"></i> <span class="dock-text">Awards</span></a>
             <a href="#projects" class="dock-btn"><i class="fa-solid fa-layer-group"></i> <span class="dock-text">Projects</span></a>
@@ -508,7 +945,6 @@
         const themeIcon = themeBtn.querySelector('i');
         const htmlElement = document.documentElement;
 
-        // Function to update icon based on state
         const updateThemeIcon = () => {
             if (htmlElement.classList.contains('light-mode')) {
                 themeIcon.className = 'fa-solid fa-sun light-icon';
@@ -516,11 +952,8 @@
                 themeIcon.className = 'fa-solid fa-moon dark-icon';
             }
         };
-        
-        // Initial Icon Set
         updateThemeIcon();
 
-        // User Toggle Action
         themeBtn.addEventListener('click', () => {
             htmlElement.classList.toggle('light-mode');
             const newTheme = htmlElement.classList.contains('light-mode') ? 'light' : 'dark';
@@ -555,47 +988,546 @@
 
         sections.forEach(sec => observer.observe(sec));
 
-        // ── GitHub Repo Fetcher (Spatial UI Cards) ──
+        // ── Helper: Procedural 3D Involute Spur Gear Mesh Builder ──
+        function createSpurGear(teeth, moduleSize, thickness, boreRadius, material) {
+            const pitchRadius = (teeth * moduleSize) / 2;
+            const addendum = moduleSize * 0.9;
+            const dedendum = moduleSize * 1.1;
+            const outerRadius = pitchRadius + addendum;
+            const rootRadius = Math.max(boreRadius + 0.15, pitchRadius - dedendum);
+
+            const shape = new THREE.Shape();
+            const step = (Math.PI * 2) / teeth;
+
+            for (let i = 0; i < teeth; i++) {
+                const a0 = i * step;
+                const a1 = a0 + step * 0.18;
+                const a2 = a0 + step * 0.30;
+                const a3 = a0 + step * 0.52;
+                const a4 = a0 + step * 0.64;
+
+                const p0x = Math.cos(a0) * rootRadius, p0y = Math.sin(a0) * rootRadius;
+                if (i === 0) shape.moveTo(p0x, p0y);
+                else shape.lineTo(p0x, p0y);
+
+                shape.lineTo(Math.cos(a1) * rootRadius, Math.sin(a1) * rootRadius);
+                shape.lineTo(Math.cos(a2) * outerRadius, Math.sin(a2) * outerRadius);
+                shape.lineTo(Math.cos(a3) * outerRadius, Math.sin(a3) * outerRadius);
+                shape.lineTo(Math.cos(a4) * rootRadius, Math.sin(a4) * rootRadius);
+            }
+            shape.closePath();
+
+            const hole = new THREE.Path();
+            hole.absarc(0, 0, boreRadius, 0, Math.PI * 2, true);
+            shape.holes.push(hole);
+
+            const extrudeSettings = {
+                depth: thickness,
+                bevelEnabled: true,
+                bevelSegments: 2,
+                steps: 1,
+                bevelSize: 0.03,
+                bevelThickness: 0.03
+            };
+            const geom = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+            geom.translate(0, 0, -thickness / 2);
+            return new THREE.Mesh(geom, material);
+        }
+
+        // ── Helper: Interactive Drag-to-Orbit Controller ──
+        function attachOrbitDrag(domEl, targetGroup, defaultRotX, defaultRotY) {
+            let isDragging = false;
+            let prevX = 0, prevY = 0;
+            targetGroup.rotation.set(defaultRotX, defaultRotY, 0);
+
+            const onDown = (x, y) => { isDragging = true; prevX = x; prevY = y; };
+            const onMove = (x, y) => {
+                if (!isDragging) return;
+                const dx = x - prevX;
+                const dy = y - prevY;
+                targetGroup.rotation.y += dx * 0.008;
+                targetGroup.rotation.x = Math.max(-1.1, Math.min(1.1, targetGroup.rotation.x + dy * 0.008));
+                prevX = x; prevY = y;
+            };
+            const onUp = () => { isDragging = false; };
+
+            domEl.addEventListener('mousedown', e => onDown(e.clientX, e.clientY));
+            window.addEventListener('mousemove', e => onMove(e.clientX, e.clientY));
+            window.addEventListener('mouseup', onUp);
+
+            domEl.addEventListener('touchstart', e => {
+                if (e.touches.length === 1) onDown(e.touches[0].clientX, e.touches[0].clientY);
+            }, { passive: true });
+            domEl.addEventListener('touchmove', e => {
+                if (e.touches.length === 1) onMove(e.touches[0].clientX, e.touches[0].clientY);
+            }, { passive: true });
+            domEl.addEventListener('touchend', onUp);
+        }
+
+        // ── 3D ASSEMBLY 1: RACK & PINION + IDLER GEAR TRAIN (HERO) ──
+        function initGearAssembly() {
+            const container = document.getElementById('gear-viewport');
+            if (!container || typeof THREE === 'undefined') return;
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(40, container.clientWidth / container.clientHeight, 0.1, 100);
+            camera.position.set(0, 1.4, 9.2);
+
+            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            container.appendChild(renderer.domElement);
+
+            scene.add(new THREE.AmbientLight(0xffffff, 0.65));
+            const keyLight = new THREE.DirectionalLight(0xffffff, 1.1);
+            keyLight.position.set(5, 8, 7);
+            scene.add(keyLight);
+            const rimLight = new THREE.DirectionalLight(0x2997ff, 0.8);
+            rimLight.position.set(-6, -3, 4);
+            scene.add(rimLight);
+
+            const steelMat = new THREE.MeshStandardMaterial({ color: 0xc8d0dc, metalness: 0.78, roughness: 0.25 });
+            const titaniumMat = new THREE.MeshStandardMaterial({ color: 0x64748b, metalness: 0.82, roughness: 0.3 });
+            const accentMat = new THREE.MeshStandardMaterial({ color: 0x2997ff, metalness: 0.65, roughness: 0.25 });
+            const darkMat = new THREE.MeshStandardMaterial({ color: 0x1e293b, metalness: 0.7, roughness: 0.4 });
+            const allMats = [steelMat, titaniumMat, accentMat, darkMat];
+
+            const assembly = new THREE.Group();
+            scene.add(assembly);
+            attachOrbitDrag(container, assembly, 0.22, -0.35);
+
+            const mod = 0.18;
+            const pinionTeeth = 18;
+            const pinionR = (pinionTeeth * mod) / 2;
+            const pinionGroup = new THREE.Group();
+            pinionGroup.position.set(0, 0.65, 0);
+
+            const pinionGear = createSpurGear(pinionTeeth, mod, 0.55, 0.35, steelMat);
+            const hub = new THREE.Mesh(new THREE.CylinderGeometry(0.58, 0.58, 0.85, 24), titaniumMat);
+            hub.rotation.x = Math.PI / 2;
+            const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.32, 0.32, 1.8, 24), accentMat);
+            shaft.rotation.x = Math.PI / 2;
+
+            pinionGroup.add(pinionGear, hub, shaft);
+            assembly.add(pinionGroup);
+
+            const idlerTeeth = 12;
+            const idlerR = (idlerTeeth * mod) / 2;
+            const centerDist = pinionR + idlerR;
+            const idlerAngle = Math.PI * 0.78;
+            const idlerGroup = new THREE.Group();
+            idlerGroup.position.set(
+                Math.cos(idlerAngle) * centerDist,
+                0.65 + Math.sin(idlerAngle) * centerDist,
+                0
+            );
+            const idlerGear = createSpurGear(idlerTeeth, mod, 0.48, 0.25, titaniumMat);
+            const idlerPin = new THREE.Mesh(new THREE.CylinderGeometry(0.23, 0.23, 1.3, 20), accentMat);
+            idlerPin.rotation.x = Math.PI / 2;
+            idlerGroup.add(idlerGear, idlerPin);
+            assembly.add(idlerGroup);
+
+            const rackGroup = new THREE.Group();
+            const rackY = 0.65 - pinionR - 0.18;
+            rackGroup.position.set(0, rackY, 0);
+
+            const rackLength = 8.4;
+            const rackBeam = new THREE.Mesh(new THREE.BoxGeometry(rackLength, 0.38, 0.55), titaniumMat);
+            rackBeam.position.y = -0.19;
+            rackGroup.add(rackBeam);
+
+            const pitchStep = Math.PI * mod;
+            const toothCount = Math.floor(rackLength / pitchStep);
+            const toothGeom = new THREE.BoxGeometry(pitchStep * 0.48, 0.32, 0.52);
+            for (let i = 0; i < toothCount; i++) {
+                const tx = -rackLength / 2 + pitchStep * 0.5 + i * pitchStep;
+                const tooth = new THREE.Mesh(toothGeom, steelMat);
+                tooth.position.set(tx, 0.14, 0);
+                rackGroup.add(tooth);
+            }
+            assembly.add(rackGroup);
+
+            const railGroup = new THREE.Group();
+            railGroup.position.set(0, rackY - 0.48, 0);
+            const baseGuide = new THREE.Mesh(new THREE.BoxGeometry(9.2, 0.16, 0.95), darkMat);
+            railGroup.add(baseGuide);
+
+            [-3.2, -1.1, 1.1, 3.2].forEach(bx => {
+                const bracket = new THREE.Mesh(new THREE.BoxGeometry(0.45, 0.42, 0.85), accentMat);
+                bracket.position.set(bx, 0.18, 0);
+                railGroup.add(bracket);
+            });
+            assembly.add(railGroup);
+
+            let isPlaying = true;
+            let isExploded = false;
+            let isWireframe = false;
+            let explodeFactor = 0;
+            let simTime = 0;
+
+            const playBtn = document.getElementById('gear-play-btn');
+            const explodeBtn = document.getElementById('gear-explode-btn');
+            const wireBtn = document.getElementById('gear-wire-btn');
+
+            playBtn.addEventListener('click', () => {
+                isPlaying = !isPlaying;
+                playBtn.classList.toggle('active', isPlaying);
+                playBtn.innerHTML = isPlaying ? '<i class="fa-solid fa-pause"></i> Motion' : '<i class="fa-solid fa-play"></i> Paused';
+            });
+
+            explodeBtn.addEventListener('click', () => {
+                isExploded = !isExploded;
+                explodeBtn.classList.toggle('active', isExploded);
+            });
+
+            wireBtn.addEventListener('click', () => {
+                isWireframe = !isWireframe;
+                wireBtn.classList.toggle('active', isWireframe);
+                allMats.forEach(m => { m.wireframe = isWireframe; });
+            });
+
+            window.addEventListener('resize', () => {
+                if (!container.clientWidth) return;
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            });
+
+            function animate() {
+                requestAnimationFrame(animate);
+                if (isPlaying) simTime += 0.018;
+
+                const theta = Math.sin(simTime) * 1.15;
+                pinionGear.rotation.z = theta;
+                idlerGear.rotation.z = -theta * (pinionTeeth / idlerTeeth) + 0.14;
+                rackGroup.position.x = -theta * pinionR;
+
+                const targetExplode = isExploded ? 1 : 0;
+                explodeFactor += (targetExplode - explodeFactor) * 0.08;
+
+                shaft.position.z = explodeFactor * 1.3;
+                hub.position.z = explodeFactor * 0.65;
+                idlerGroup.position.z = explodeFactor * 0.95;
+                railGroup.position.y = (rackY - 0.48) - explodeFactor * 0.65;
+
+                renderer.render(scene, camera);
+            }
+            animate();
+        }
+
+        // ── 3D ASSEMBLY 2: RECIPROCATING PISTON-CRANKSHAFT ENGINE (KINEMATICS LAB) ──
+        function initPistonAssembly() {
+            const container = document.getElementById('piston-viewport');
+            if (!container || typeof THREE === 'undefined') return;
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(40, container.clientWidth / container.clientHeight, 0.1, 100);
+            camera.position.set(0, 0.8, 10.5);
+
+            const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            container.appendChild(renderer.domElement);
+
+            scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+            const dirLight = new THREE.DirectionalLight(0xffffff, 1.15);
+            dirLight.position.set(6, 9, 8);
+            scene.add(dirLight);
+            const blueLight = new THREE.DirectionalLight(0x2997ff, 0.85);
+            blueLight.position.set(-6, 2, -5);
+            scene.add(blueLight);
+
+            const alloyMat = new THREE.MeshStandardMaterial({ color: 0xd1d5db, metalness: 0.8, roughness: 0.22 });
+            const steelDark = new THREE.MeshStandardMaterial({ color: 0x475569, metalness: 0.85, roughness: 0.28 });
+            const blueAccent = new THREE.MeshStandardMaterial({ color: 0x2997ff, metalness: 0.65, roughness: 0.25 });
+            const glassSleeveMat = new THREE.MeshPhysicalMaterial({
+                color: 0x93c5fd,
+                transparent: true,
+                opacity: 0.22,
+                roughness: 0.1,
+                metalness: 0.1,
+                side: THREE.DoubleSide
+            });
+            const allMats = [alloyMat, steelDark, blueAccent];
+
+            const rootGroup = new THREE.Group();
+            scene.add(rootGroup);
+            attachOrbitDrag(container, rootGroup, 0.18, 0.55);
+
+            const crankR = 0.85;
+            const rodLen = 2.45;
+            const crankCenterY = -1.35;
+
+            const crankGroup = new THREE.Group();
+            crankGroup.position.set(0, crankCenterY, 0);
+
+            const mainShaft = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.28, 3.4, 24), steelDark);
+            mainShaft.rotation.z = Math.PI / 2;
+
+            const webLeft = new THREE.Mesh(new THREE.BoxGeometry(0.22, 1.45, 0.75), alloyMat);
+            webLeft.position.set(-0.52, crankR * 0.35, 0);
+            const webRight = new THREE.Mesh(new THREE.BoxGeometry(0.22, 1.45, 0.75), alloyMat);
+            webRight.position.set(0.52, crankR * 0.35, 0);
+
+            const crankPin = new THREE.Mesh(new THREE.CylinderGeometry(0.22, 0.22, 1.15, 20), blueAccent);
+            crankPin.rotation.z = Math.PI / 2;
+            crankPin.position.set(0, crankR, 0);
+
+            const flywheel = createSpurGear(24, 0.12, 0.28, 0.3, steelDark);
+            flywheel.rotation.y = Math.PI / 2;
+            flywheel.position.set(1.55, 0, 0);
+
+            crankGroup.add(mainShaft, webLeft, webRight, crankPin, flywheel);
+            rootGroup.add(crankGroup);
+
+            const rodGroup = new THREE.Group();
+            const rodBeam = new THREE.Mesh(new THREE.BoxGeometry(0.26, rodLen, 0.18), alloyMat);
+            rodBeam.position.y = rodLen / 2;
+            const bigEnd = new THREE.Mesh(new THREE.CylinderGeometry(0.36, 0.36, 0.34, 20), steelDark);
+            bigEnd.rotation.z = Math.PI / 2;
+            const smallEnd = new THREE.Mesh(new THREE.CylinderGeometry(0.24, 0.24, 0.34, 20), steelDark);
+            smallEnd.rotation.z = Math.PI / 2;
+            smallEnd.position.y = rodLen;
+            rodGroup.add(rodBeam, bigEnd, smallEnd);
+            rootGroup.add(rodGroup);
+
+            const pistonGroup = new THREE.Group();
+            const pistonBody = new THREE.Mesh(new THREE.CylinderGeometry(1.05, 1.05, 1.15, 32), alloyMat);
+            const ring1 = new THREE.Mesh(new THREE.TorusGeometry(1.06, 0.03, 10, 32), blueAccent);
+            ring1.rotation.x = Math.PI / 2;
+            ring1.position.y = 0.34;
+            const ring2 = new THREE.Mesh(new THREE.TorusGeometry(1.06, 0.03, 10, 32), blueAccent);
+            ring2.rotation.x = Math.PI / 2;
+            ring2.position.y = 0.20;
+            const wristPin = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.18, 1.95, 20), blueAccent);
+            wristPin.rotation.z = Math.PI / 2;
+
+            pistonGroup.add(pistonBody, ring1, ring2, wristPin);
+            rootGroup.add(pistonGroup);
+
+            const cylinderLiner = new THREE.Mesh(new THREE.CylinderGeometry(1.13, 1.13, 2.75, 32, 1, true), glassSleeveMat);
+            cylinderLiner.position.set(0, 1.45, 0);
+            rootGroup.add(cylinderLiner);
+
+            let rpmSpeed = 0.045;
+            let isBoosted = false;
+            let isExploded = false;
+            let isWireframe = false;
+            let explodeFactor = 0;
+            let crankAngle = 0;
+
+            const speedBtn = document.getElementById('piston-speed-btn');
+            const explodeBtn = document.getElementById('piston-explode-btn');
+            const wireBtn = document.getElementById('piston-wire-btn');
+            const readout = document.getElementById('rpm-readout');
+
+            function updateReadout() {
+                const rpmText = isBoosted ? '480 RPM' : '120 RPM';
+                const stateText = isExploded ? 'EXPLODED VIEW' : 'ASSEMBLED';
+                readout.textContent = `${rpmText} • ${stateText}`;
+            }
+
+            speedBtn.addEventListener('click', () => {
+                isBoosted = !isBoosted;
+                rpmSpeed = isBoosted ? 0.13 : 0.045;
+                speedBtn.innerHTML = isBoosted ? '<i class="fa-solid fa-gauge"></i> Normal RPM' : '<i class="fa-solid fa-gauge-high"></i> Boost RPM';
+                updateReadout();
+            });
+
+            explodeBtn.addEventListener('click', () => {
+                isExploded = !isExploded;
+                explodeBtn.classList.toggle('active', isExploded);
+                updateReadout();
+            });
+
+            wireBtn.addEventListener('click', () => {
+                isWireframe = !isWireframe;
+                wireBtn.classList.toggle('active', isWireframe);
+                allMats.forEach(m => { m.wireframe = isWireframe; });
+            });
+
+            window.addEventListener('resize', () => {
+                if (!container.clientWidth) return;
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            });
+
+            function animate() {
+                requestAnimationFrame(animate);
+                crankAngle += rpmSpeed;
+                crankGroup.rotation.x = crankAngle;
+
+                const pinY = Math.cos(crankAngle) * crankR;
+                const pinZ = Math.sin(crankAngle) * crankR;
+
+                const sinPhi = pinZ / rodLen;
+                const phi = Math.asin(sinPhi);
+                const pistonRelY = pinY + Math.sqrt(rodLen * rodLen - pinZ * pinZ);
+
+                const targetExplode = isExploded ? 1 : 0;
+                explodeFactor += (targetExplode - explodeFactor) * 0.08;
+
+                rodGroup.position.set(0, crankCenterY + pinY + explodeFactor * 0.45, pinZ);
+                rodGroup.rotation.x = -phi;
+
+                pistonGroup.position.set(0, crankCenterY + pistonRelY + explodeFactor * 1.15, 0);
+                wristPin.position.x = explodeFactor * 1.35;
+                ring1.position.y = 0.34 + explodeFactor * 0.35;
+                ring2.position.y = 0.20 + explodeFactor * 0.18;
+                flywheel.position.x = 1.55 + explodeFactor * 0.9;
+                cylinderLiner.position.y = 1.45 + explodeFactor * 1.65;
+
+                renderer.render(scene, camera);
+            }
+            animate();
+        }
+
+        // ── 2D ANIMATED 4-STROKE SCHEMATIC LOOP ──
+        function initSchematicAnimation() {
+            const crankLine = document.getElementById('schem-crank');
+            const rodLine = document.getElementById('schem-rod');
+            const crankPin = document.getElementById('schem-crankpin');
+            const pistonGroup = document.getElementById('schem-piston');
+            const intakeValve = document.getElementById('intake-valve');
+            const exhaustValve = document.getElementById('exhaust-valve');
+            const sparkFlash = document.getElementById('spark-flash');
+            const chamberGlow = document.getElementById('chamber-glow');
+            const strokeLabel = document.getElementById('stroke-label');
+
+            if (!crankLine) return;
+
+            let cycleAngle = 0;
+            const cx = 180, cy = 175, r = 20, L = 62;
+
+            function stepSchematic() {
+                cycleAngle = (cycleAngle + 0.04) % (Math.PI * 4);
+                const theta = cycleAngle;
+
+                const px = cx + Math.sin(theta) * r;
+                const py = cy - Math.cos(theta) * r;
+                const pistonPinY = py - Math.sqrt(L * L - Math.pow(px - cx, 2));
+                const pistonShiftY = pistonPinY - 95;
+
+                crankLine.setAttribute('x2', px.toFixed(1));
+                crankLine.setAttribute('y2', py.toFixed(1));
+                crankPin.setAttribute('cx', px.toFixed(1));
+                crankPin.setAttribute('cy', py.toFixed(1));
+
+                rodLine.setAttribute('x1', px.toFixed(1));
+                rodLine.setAttribute('y1', py.toFixed(1));
+                rodLine.setAttribute('x2', cx);
+                rodLine.setAttribute('y2', pistonPinY.toFixed(1));
+
+                pistonGroup.setAttribute('transform', `translate(0, ${pistonShiftY.toFixed(1)})`);
+                chamberGlow.setAttribute('height', Math.max(8, (75 + pistonShiftY) - 45).toFixed(1));
+
+                const phase = Math.floor(cycleAngle / Math.PI);
+                let intakeLift = 0, exhaustLift = 0, spark = 0, glowOp = 0.14;
+                let phaseText = 'INTAKE STROKE';
+
+                if (phase === 0) {
+                    intakeLift = Math.sin(cycleAngle) * 6;
+                    phaseText = 'CYCLE 1/4: INTAKE STROKE';
+                } else if (phase === 1) {
+                    glowOp = 0.14 + ((cycleAngle - Math.PI) / Math.PI) * 0.25;
+                    phaseText = 'CYCLE 2/4: COMPRESSION STROKE';
+                } else if (phase === 2) {
+                    const local = cycleAngle - Math.PI * 2;
+                    spark = local < 0.35 ? 1 : 0;
+                    glowOp = Math.max(0.14, 0.55 - local * 0.15);
+                    phaseText = 'CYCLE 3/4: POWER EXPANSION';
+                } else {
+                    const local = cycleAngle - Math.PI * 3;
+                    exhaustLift = Math.sin(local) * 6;
+                    phaseText = 'CYCLE 4/4: EXHAUST STROKE';
+                }
+
+                intakeValve.setAttribute('transform', `translate(0, ${intakeLift.toFixed(1)})`);
+                exhaustValve.setAttribute('transform', `translate(0, ${exhaustLift.toFixed(1)})`);
+                sparkFlash.setAttribute('opacity', spark);
+                chamberGlow.setAttribute('opacity', glowOp.toFixed(2));
+                strokeLabel.textContent = phaseText;
+
+                requestAnimationFrame(stepSchematic);
+            }
+            stepSchematic();
+        }
+
+        // Initialize 3D & 2D Assemblies
+        initGearAssembly();
+        initPistonAssembly();
+        initSchematicAnimation();
+
+        // ── Dynamic GitHub Repo Fetcher (Fills Complete Rows With Zero Empty Spaces) ──
+        let cachedRepos = [];
+        let lastRenderedCount = -1;
+
+        function getActiveGridColumns(container) {
+            const templateCols = window.getComputedStyle(container).gridTemplateColumns;
+            if (!templateCols || templateCols === 'none') return 1;
+            const tracks = templateCols.trim().split(/\s+/).filter(Boolean);
+            return Math.max(1, tracks.length);
+        }
+
+        function renderBalancedRepos(force = false) {
+            const container = document.getElementById('github-projects');
+            if (!container || !cachedRepos.length) return;
+
+            const cols = getActiveGridColumns(container);
+            const targetRows = cols === 1 ? 5 : (cols === 2 ? 3 : 2);
+            let displayCount = cols * targetRows;
+
+            // Clamp to an exact multiple of active columns so the final row has zero empty gaps
+            if (cachedRepos.length < displayCount) {
+                const fullRows = Math.floor(cachedRepos.length / cols);
+                displayCount = fullRows > 0 ? fullRows * cols : cachedRepos.length;
+            }
+
+            if (!force && displayCount === lastRenderedCount) return;
+            lastRenderedCount = displayCount;
+
+            container.innerHTML = '';
+            cachedRepos.slice(0, displayCount).forEach(repo => {
+                const card = document.createElement('div');
+                card.className = 'repo-card';
+                card.innerHTML = `
+                    <div style="min-width: 0;">
+                        <h3 class="repo-title">
+                            <i class="fa-solid fa-folder-open"></i>
+                            <span class="repo-title-text">${repo.name}</span>
+                        </h3>
+                        <p class="repo-desc">
+                            ${repo.description || 'System engineering module, CAD model, or automation script.'}
+                        </p>
+                    </div>
+                    <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="pill" style="display: flex; justify-content: center; width: 100%;">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> View Code
+                    </a>
+                `;
+                container.appendChild(card);
+            });
+        }
+
         async function loadRepos() {
             const username = 'a-adeboye';
             const container = document.getElementById('github-projects');
 
             try {
-                const res = await fetch(`https://api.github.com/users/${username}/repos`);
+                const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
                 const repos = await res.json();
 
                 if (!Array.isArray(repos)) return;
 
-                container.innerHTML = ''; 
-                repos
-                    .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
-                    .slice(0, 4) 
-                    .forEach(repo => {
-                        const card = document.createElement('div');
-                        card.style.background = 'var(--glass-highlight)';
-                        card.style.padding = '2.5rem';
-                        card.style.borderRadius = '24px';
-                        card.style.border = '1px solid var(--glass-border)';
-                        card.style.transition = 'var(--transition-smooth)';
-                        
-                        card.innerHTML = `
-                            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; font-family: var(--font-heading); font-weight: 700;">
-                                <i class="fa-solid fa-folder-open" style="color: var(--accent-color); margin-right: 0.5rem;"></i> ${repo.name}
-                            </h3>
-                            <p style="font-size: 1.4rem; color: var(--text-muted); margin-bottom: 2rem; min-height: 4rem;">
-                                ${repo.description || 'System engineering module or script data.'}
-                            </p>
-                            <a href="${repo.html_url}" target="_blank" class="pill" style="display: flex; justify-content: center; width: 100%;">
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i> View Code
-                            </a>
-                        `;
-                        
-                        // Add hover effect via JS since it's injected
-                        card.addEventListener('mouseenter', () => { card.style.borderColor = 'var(--accent-color)'; card.style.transform = 'translateY(-2px)'; });
-                        card.addEventListener('mouseleave', () => { card.style.borderColor = 'var(--glass-border)'; card.style.transform = 'translateY(0)'; });
+                cachedRepos = repos.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+                renderBalancedRepos(true);
 
-                        container.appendChild(card);
-                    });
+                // Re-balance automatically whenever screen orientation or viewport width changes
+                let resizeTimer;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(() => renderBalancedRepos(false), 120);
+                });
             } catch (err) {
                 container.innerHTML = `<p style="color:var(--text-muted);"><i class="fa-solid fa-triangle-exclamation"></i> Repository datastream unavailable.</p>`;
             }
